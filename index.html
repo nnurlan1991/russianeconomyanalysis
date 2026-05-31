@@ -305,8 +305,117 @@
                 display: none !important;
             }
         }
+
+        /* 16:9 Desktop Slides Adaptability */
+        @media (min-width: 1024px) {
+            #slide-wrapper {
+                aspect-ratio: 16 / 9 !important;
+                max-height: calc(100vh - 160px) !important;
+                min-height: 520px !important;
+            }
+            #slide-content {
+                min-height: 0 !important;
+                flex: 1 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+            }
+        }
+
+        /* 16:9 Presentation Fullscreen Styling */
+        #slide-wrapper:fullscreen {
+            width: 100vw !important;
+            height: 56.25vw !important; /* 9/16 * 100 */
+            max-height: 100vh !important;
+            max-width: 177.78vh !important; /* 16/9 * 100 */
+            margin: auto !important;
+            padding: 4vh 5vw !important;
+            box-sizing: border-box !important;
+            border-radius: 0px !important;
+            border: none !important;
+            box-shadow: none !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            background: var(--bg-gradient) !important;
+        }
+
+        #slide-wrapper::backdrop {
+            background: #060709 !important;
+        }
+
+        /* Fullscreen Typography and Layout Upscaling */
+        #slide-wrapper:fullscreen #slide-content {
+            min-height: 0 !important;
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+        }
+
+        #slide-wrapper:fullscreen h2 {
+            font-size: 2.25rem !important;
+            line-height: 2.5rem !important;
+        }
+
+        #slide-wrapper:fullscreen p {
+            font-size: 0.95rem !important;
+            line-height: 1.5rem !important;
+        }
+
+        #slide-wrapper:fullscreen .text-\[10px\] {
+            font-size: 0.8rem !important;
+        }
+
+        #slide-wrapper:fullscreen .text-\[9px\] {
+            font-size: 0.75rem !important;
+        }
+
+        #slide-wrapper:fullscreen .text-xs {
+            font-size: 0.85rem !important;
+        }
+
+        #slide-wrapper:fullscreen .text-sm {
+            font-size: 0.95rem !important;
+        }
+
+        #slide-wrapper:fullscreen .text-base {
+            font-size: 1.15rem !important;
+        }
+
+        #slide-wrapper:fullscreen .text-lg {
+            font-size: 1.35rem !important;
+        }
+
+        #slide-wrapper:fullscreen .text-2xl {
+            font-size: 2.5rem !important;
+        }
+
+        #slide-wrapper:fullscreen .text-3xl {
+            font-size: 3rem !important;
+        }
+
+        #slide-wrapper:fullscreen .text-4xl {
+            font-size: 3.5rem !important;
+        }
+
+        /* Chart & Graphic Sizing in Fullscreen */
+        #slide-wrapper:fullscreen .min-h-\[280px\] {
+            min-height: 38vh !important;
+            height: 100% !important;
+        }
+
+        #slide-wrapper:fullscreen .min-h-\[240px\] {
+            min-height: 33vh !important;
+            height: 100% !important;
+        }
+
+        #slide-wrapper:fullscreen .h-\[250px\] {
+            height: 36vh !important;
+        }
     </style>
 </head>
+
 
 <body class="font-sans antialiased overflow-x-hidden min-h-screen relative flex flex-col justify-between">
 
