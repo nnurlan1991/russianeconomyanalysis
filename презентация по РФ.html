@@ -526,7 +526,23 @@
                 <p class="flex items-center gap-1.5"><i class="fa-regular fa-keyboard text-brand-blue"></i> Стрелки ← →
                     для навигации</p>
             </div>
+
+            <!-- QR Code Section for Mobile View -->
+            <div class="mt-4 pt-4 border-t border-slate-200 dark:border-white/[0.04] flex flex-col items-center text-center">
+                <div class="bg-white p-1.5 rounded-xl border border-slate-200 dark:border-white/10 shadow-sm mb-2 flex items-center justify-center">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://nnurlan1991.github.io/russianeconomyanalysis/" 
+                         alt="QR Code" 
+                         class="w-20 h-20 object-contain">
+                </div>
+                <span class="text-[10px] text-slate-500 dark:text-slate-400 font-semibold leading-relaxed px-1">
+                    Мобильная версия
+                </span>
+                <span class="text-[9px] text-slate-400 dark:text-slate-500 leading-normal mt-0.5 px-2">
+                    Сканируйте для просмотра презентации на мобильных устройствах
+                </span>
+            </div>
         </aside>
+
 
         <!-- Center Slide Viewport -->
         <section class="flex flex-col gap-4">
