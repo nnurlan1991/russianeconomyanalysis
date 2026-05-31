@@ -70,7 +70,7 @@
             --text-primary: #f5f5f7;
             --text-secondary: #86868b;
             --shadow: rgba(0, 0, 0, 0.4);
-            
+
             --brand-blue: #2997ff;
             --brand-green: #30d158;
             --brand-orange: #ff9f0a;
@@ -79,7 +79,7 @@
             --brand-yellow: #ffd60a;
             --border-glow: rgba(41, 151, 255, 0.15);
         }
-        
+
         .light {
             --bg-gradient: radial-gradient(circle at 50% 50%, #fafbff 0%, #f0f2f8 50%, #e2e6f0 100%);
             --slide-bg: rgba(255, 255, 255, 0.92);
@@ -88,7 +88,7 @@
             --text-primary: #1d1d1f;
             --text-secondary: #515154;
             --shadow: rgba(0, 0, 0, 0.04);
-            
+
             --brand-blue: #0071e3;
             --brand-green: #1d883b;
             --brand-orange: #bf4f00;
@@ -108,24 +108,31 @@
         .light .border-white\/\[0\.08\] {
             border-color: rgba(0, 0, 0, 0.08) !important;
         }
+
         .light .border-white\/\[0\.04\] {
             border-color: rgba(0, 0, 0, 0.04) !important;
         }
-        .light .divide-white\/\[0\.08\] > :not([hidden]) ~ :not([hidden]) {
+
+        .light .divide-white\/\[0\.08\]> :not([hidden])~ :not([hidden]) {
             border-color: rgba(0, 0, 0, 0.08) !important;
         }
-        .light .divide-white\/\[0\.04\] > :not([hidden]) ~ :not([hidden]) {
+
+        .light .divide-white\/\[0\.04\]> :not([hidden])~ :not([hidden]) {
             border-color: rgba(0, 0, 0, 0.04) !important;
         }
+
         .light .border-slate-300 {
             border-color: rgba(0, 0, 0, 0.08) !important;
         }
-        .light .divide-slate-300 > :not([hidden]) ~ :not([hidden]) {
+
+        .light .divide-slate-300> :not([hidden])~ :not([hidden]) {
             border-color: rgba(0, 0, 0, 0.08) !important;
         }
+
         .light .bg-slate-900\/10 {
             background-color: rgba(0, 0, 0, 0.02) !important;
         }
+
         .light .bg-slate-950\/20 {
             background-color: rgba(0, 0, 0, 0.02) !important;
         }
@@ -262,46 +269,56 @@
             .min-h-\[280px\] {
                 min-height: 195px !important;
             }
+
             .min-h-\[240px\] {
                 min-height: 155px !important;
             }
+
             .min-h-\[480px\] {
                 min-height: 350px !important;
             }
+
             .liquid-card {
                 border-radius: 1.5rem !important;
                 padding: 1rem !important;
             }
+
             header {
                 flex-direction: column !important;
                 align-items: center !important;
                 gap: 0.75rem !important;
                 padding: 0.75rem 1rem !important;
             }
-            header > div:first-child {
+
+            header>div:first-child {
                 width: 100% !important;
                 justify-content: center !important;
             }
-            header > div:last-child {
+
+            header>div:last-child {
                 width: 100% !important;
                 justify-content: space-between !important;
             }
+
             /* Period grid columns on Slide 0 */
             .grid-cols-4 {
                 grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
             }
+
             /* Car image height on Slide 1 */
             .h-\[250px\] {
                 height: 180px !important;
             }
+
             /* Slide controller row gap adjustments */
-            section.flex.flex-col.gap-4 > div:last-child {
+            section.flex.flex-col.gap-4>div:last-child {
                 flex-wrap: wrap !important;
                 gap: 0.5rem !important;
                 justify-content: center !important;
             }
+
             /* Hide print/fullscreen buttons on mobile for clean UI */
-            section.flex.flex-col.gap-4 > div:last-child > div:last-child {
+            section.flex.flex-col.gap-4>div:last-child>div:last-child {
                 display: none !important;
             }
         }
@@ -313,6 +330,7 @@
                 max-height: calc(100vh - 160px) !important;
                 min-height: 520px !important;
             }
+
             #slide-content {
                 min-height: 0 !important;
                 flex: 1 !important;
@@ -325,9 +343,11 @@
         /* 16:9 Presentation Fullscreen Styling */
         #slide-wrapper:fullscreen {
             width: 100vw !important;
-            height: 56.25vw !important; /* 9/16 * 100 */
+            height: 56.25vw !important;
+            /* 9/16 * 100 */
             max-height: 100vh !important;
-            max-width: 177.78vh !important; /* 16/9 * 100 */
+            max-width: 177.78vh !important;
+            /* 16/9 * 100 */
             margin: auto !important;
             padding: 4vh 5vw !important;
             box-sizing: border-box !important;
@@ -438,15 +458,14 @@
         <div class="flex items-center gap-3">
             <!-- Logos group with high contrast white backing badges -->
             <div class="flex items-center gap-1.5 flex-shrink-0">
-                <div class="h-9 w-9 rounded-xl bg-white p-1 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center">
-                    <img src="./Vector.svg" 
-                         class="h-7 w-7 object-contain" 
-                         alt="Школа аналитики Талдау">
+                <div
+                    class="h-9 w-9 rounded-xl bg-white p-1 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center">
+                    <img src="./Vector.svg" class="h-7 w-7 object-contain" alt="Школа аналитики Талдау">
                 </div>
-                <div class="h-9 w-9 rounded-xl bg-white p-1 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center">
-                    <img src="./логотипы/National_Bank_of_Kazakhstan_logo.svg" 
-                         class="h-7 w-7 object-contain" 
-                         alt="Национальный Банк РК">
+                <div
+                    class="h-9 w-9 rounded-xl bg-white p-1 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center">
+                    <img src="./логотипы/National_Bank_of_Kazakhstan_logo.svg" class="h-7 w-7 object-contain"
+                        alt="Национальный Банк РК">
                 </div>
             </div>
 
@@ -558,7 +577,7 @@
                         class="h-9 sm:h-10 px-3 sm:px-4 rounded-xl liquid-card hover:bg-slate-200/50 dark:hover:bg-white/5 active:scale-95 transition-all flex items-center justify-center text-[11px] sm:text-xs font-bold gap-1.5">
                         <i class="fa-solid fa-arrow-left"></i> Назад
                     </button>
-                    
+
                     <!-- Mobile Selector in the middle for mobile viewports -->
                     <div class="lg:hidden">
                         <select id="mobile-slide-selector" onchange="goToSlide(parseInt(this.value))"
@@ -611,7 +630,7 @@
     <!-- Global Footer -->
     <footer
         class="relative z-50 text-center py-6 border-t border-slate-300/40 dark:border-white/[0.04] text-[10px] text-slate-500 max-w-[1700px] mx-auto w-full px-6">
-        <span>Разработка: Управление макроэкономических исследований и прогнозирования © 2026</span>
+        <span>Разработка: Центр поддержки цифрового Правительства при МИИЦР РК © 2026</span>
     </footer>
 
     <!-- MAIN PRESENTATION LOGIC -->
