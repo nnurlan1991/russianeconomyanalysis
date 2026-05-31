@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эволюция макроэкономики России: 1990–2030</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: 'var(--brand-blue)',
+                            green: 'var(--brand-green)',
+                            red: 'var(--brand-red)',
+                            orange: 'var(--brand-orange)',
+                            yellow: 'var(--brand-yellow)',
+                            purple: 'var(--brand-purple)',
+                            darkBg: '#0A0A0C',
+                            lightBg: '#F5F5F7'
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 15s infinite alternate ease-in-out',
+                        'blob-reverse': 'blob-reverse 20s infinite alternate ease-in-out',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(40px, -60px) scale(1.15)' },
+                            '66%': { transform: 'translate(-30px, 40px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        'blob-reverse': {
+                            '0%': { transform: 'translate(0px, 0px) scale(1.1)' },
+                            '50%': { transform: 'translate(-50px, 50px) scale(0.85)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1.1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-gradient: radial-gradient(circle at 50% 50%, #12141d 0%, #08090c 100%);
+            --slide-bg: rgba(18, 20, 29, 0.45);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --shadow: rgba(0, 0, 0, 0.4);
+            
+            --brand-blue: #2997ff;
+            --brand-green: #30d158;
+            --brand-orange: #ff9f0a;
+            --brand-red: #ff453a;
+            --brand-purple: #bf5af2;
+            --brand-yellow: #ffd60a;
+            --border-glow: rgba(41, 151, 255, 0.15);
+        }
+        
+        .light {
+            --bg-gradient: radial-gradient(circle at 50% 50%, #fafbff 0%, #f0f2f8 50%, #e2e6f0 100%);
+            --slide-bg: rgba(255, 255, 255, 0.92);
+            --card-bg: rgba(255, 255, 255, 0.65);
+            --card-border: rgba(0, 0, 0, 0.07);
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+            --shadow: rgba(0, 0, 0, 0.04);
+            
+            --brand-blue: #0071e3;
+            --brand-green: #1d883b;
+            --brand-orange: #bf4f00;
+            --brand-red: #d70015;
+            --brand-purple: #8600d9;
+            --brand-yellow: #b58900;
+            --border-glow: rgba(0, 113, 227, 0.06);
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            transition: background 0.5s ease, color 0.3s ease;
+        }
+
+        /* Light Theme Overrides for Tailwind Borders & Layouts */
+        .light .border-white\/\[0\.08\] {
+            border-color: rgba(0, 0, 0, 0.08) !important;
+        }
+        .light .border-white\/\[0\.04\] {
+            border-color: rgba(0, 0, 0, 0.04) !important;
+        }
+        .light .divide-white\/\[0\.08\] > :not([hidden]) ~ :not([hidden]) {
+            border-color: rgba(0, 0, 0, 0.08) !important;
+        }
+        .light .divide-white\/\[0\.04\] > :not([hidden]) ~ :not([hidden]) {
+            border-color: rgba(0, 0, 0, 0.04) !important;
+        }
+        .light .border-slate-300 {
+            border-color: rgba(0, 0, 0, 0.08) !important;
+        }
+        .light .divide-slate-300 > :not([hidden]) ~ :not([hidden]) {
+            border-color: rgba(0, 0, 0, 0.08) !important;
+        }
+        .light .bg-slate-900\/10 {
+            background-color: rgba(0, 0, 0, 0.02) !important;
+        }
+        .light .bg-slate-950\/20 {
+            background-color: rgba(0, 0, 0, 0.02) !important;
+        }
+
+        .ppt-menu-btn-active {
+            color: var(--brand-blue) !important;
+            background-color: var(--border-glow) !important;
+            border-left: 2px solid var(--brand-blue) !important;
+            font-weight: 700 !important;
+        }
+
+        .liquid-card {
+            background: var(--slide-bg);
+            backdrop-filter: blur(24px) saturate(190%);
+            -webkit-backdrop-filter: blur(24px) saturate(190%);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 12px 40px 0 var(--shadow);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .liquid-inner-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .liquid-inner-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .light .liquid-inner-card:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Slide element transitions */
+        .slide-container {
+            display: none;
+            opacity: 0;
+            transform: scale(0.99);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            height: 100%;
+        }
+
+        .slide-container.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Custom premium scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(134, 134, 139, 0.3);
+            border-radius: 999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(134, 134, 139, 0.5);
+        }
+
+        /* Interactive automobile chassis highlighting */
+        .car-part {
+            transition: all 0.3s ease;
+            stroke-width: 1.5px;
+        }
+
+        .car-part-fill {
+            transition: all 0.3s ease;
+            fill-opacity: 0.1;
+        }
+
+        .highlight-gdp .part-engine {
+            stroke: #2997ff !important;
+            stroke-width: 3px !important;
+            filter: drop-shadow(0 0 8px rgba(41, 151, 255, 0.6));
+        }
+
+        .highlight-gdp .part-engine-fill {
+            fill: #2997ff !important;
+            fill-opacity: 0.4 !important;
+        }
+
+        .highlight-rate .part-brake {
+            stroke: #ff9f0a !important;
+            stroke-width: 3px !important;
+            filter: drop-shadow(0 0 8px rgba(255, 159, 10, 0.6));
+        }
+
+        .highlight-rate .part-brake-fill {
+            fill: #ff9f0a !important;
+            fill-opacity: 0.4 !important;
+        }
+
+        .highlight-cpi .part-temp {
+            stroke: #ff453a !important;
+            stroke-width: 3px !important;
+            filter: drop-shadow(0 0 8px rgba(255, 69, 58, 0.6));
+        }
+
+        .highlight-cpi .part-temp-fill {
+            fill: #ff453a !important;
+            fill-opacity: 0.4 !important;
+        }
+
+        .highlight-rub .part-shock {
+            stroke: #30d158 !important;
+            stroke-width: 3px !important;
+            filter: drop-shadow(0 0 8px rgba(48, 209, 88, 0.6));
+        }
+
+        .highlight-rub .part-shock-fill {
+            fill: #30d158 !important;
+            fill-opacity: 0.4 !important;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 20px rgba(41, 151, 255, 0.3);
+        }
+
+        /* Mobile Layout & Responsiveness Enhancements */
+        @media (max-width: 768px) {
+            .min-h-\[280px\] {
+                min-height: 195px !important;
+            }
+            .min-h-\[240px\] {
+                min-height: 155px !important;
+            }
+            .min-h-\[480px\] {
+                min-height: 350px !important;
+            }
+            .liquid-card {
+                border-radius: 1.5rem !important;
+                padding: 1rem !important;
+            }
+            header {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 0.75rem !important;
+                padding: 0.75rem 1rem !important;
+            }
+            header > div:first-child {
+                width: 100% !important;
+                justify-content: center !important;
+            }
+            header > div:last-child {
+                width: 100% !important;
+                justify-content: space-between !important;
+            }
+            /* Period grid columns on Slide 0 */
+            .grid-cols-4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+            /* Car image height on Slide 1 */
+            .h-\[250px\] {
+                height: 180px !important;
+            }
+            /* Slide controller row gap adjustments */
+            section.flex.flex-col.gap-4 > div:last-child {
+                flex-wrap: wrap !important;
+                gap: 0.5rem !important;
+                justify-content: center !important;
+            }
+            /* Hide print/fullscreen buttons on mobile for clean UI */
+            section.flex.flex-col.gap-4 > div:last-child > div:last-child {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased overflow-x-hidden min-h-screen relative flex flex-col justify-between">
+
+    <!-- Background Animated Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div
+            class="absolute top-[10%] left-[5%] w-[45vw] h-[45vw] rounded-full bg-blue-600/10 dark:bg-blue-600/15 blur-[100px] animate-blob">
+        </div>
+        <div
+            class="absolute bottom-[15%] right-[5%] w-[50vw] h-[50vw] rounded-full bg-purple-600/10 dark:bg-purple-500/10 blur-[120px] animate-blob-reverse">
+        </div>
+        <div
+            class="absolute top-[40%] left-[45%] w-[35vw] h-[35vw] rounded-full bg-emerald-500/5 dark:bg-emerald-500/8 blur-[90px] animate-blob">
+        </div>
+    </div>
+
+    <!-- Top Global Header -->
+    <header
+        class="relative z-50 w-full px-4 py-3 sm:px-6 sm:py-4 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-0 border-b border-slate-200 dark:border-white/[0.04] backdrop-blur-md">
+        <div class="flex items-center gap-3">
+            <!-- Logos group with high contrast white backing badges -->
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+                <div class="h-9 w-9 rounded-xl bg-white p-1 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center">
+                    <img src="./логотипы/National_Bank_of_Kazakhstan_logo.svg" 
+                         class="h-7 w-7 object-contain" 
+                         alt="Национальный Банк РК">
+                </div>
+                <div class="h-9 w-9 rounded-xl bg-white p-1 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center">
+                    <img src="./Vector.svg" 
+                         class="h-7 w-7 object-contain" 
+                         alt="Школа аналитики Талдау">
+                </div>
+            </div>
+            <div class="leading-none">
+                <span
+                    class="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider text-brand-blue block font-display">Школа
+                    аналитики Талдау при Сенате Парламента РК</span>
+                <span
+                    class="text-[10px] sm:text-xs font-semibold opacity-90 text-slate-700 dark:text-slate-200 mt-0.5 sm:mt-1 block">Национальный
+                    Банк РК</span>
+            </div>
+        </div>
+
+        <!-- Controls Center -->
+        <div class="flex items-center justify-between md:justify-end gap-3 w-full md:w-auto flex-shrink-0">
+            <!-- View Mode Selector -->
+            <div class="bg-slate-200/50 dark:bg-slate-800/60 p-0.5 rounded-full flex items-center">
+                <button id="btn-mode-ppt"
+                    class="px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold flex items-center gap-1.5 transition-all text-brand-blue bg-white dark:bg-slate-700 shadow-sm"
+                    onclick="setViewMode('ppt')">
+                    <i class="fa-solid fa-desktop"></i> Презентация
+                </button>
+                <button id="btn-mode-scroll"
+                    class="px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold flex items-center gap-1.5 transition-all text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                    onclick="setViewMode('scroll')">
+                    <i class="fa-solid fa-scroll"></i> Лендинг
+                </button>
+            </div>
+
+            <!-- Dark / Light Theme -->
+            <button onclick="toggleTheme()"
+                class="h-9 w-9 rounded-full bg-slate-200/50 dark:bg-slate-800/60 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all flex items-center justify-center text-slate-700 dark:text-slate-300 flex-shrink-0"
+                aria-label="Toggle Theme">
+                <i class="fa-regular fa-moon dark:hidden text-sm"></i>
+                <i class="fa-regular fa-sun hidden dark:block text-sm"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- PowerPoint Presentation Workspace Layout (Default) -->
+    <main id="ppt-view"
+        class="relative z-10 flex-1 w-full max-w-[1700px] mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6">
+
+        <!-- Left Sidebar: PPT Navigation List -->
+        <aside
+            class="liquid-card rounded-2xl p-4 flex flex-col justify-between max-h-[calc(100vh-140px)] overflow-y-auto hidden lg:flex">
+            <div>
+                <h2 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3 px-1">
+                    Слайды презентации</h2>
+                <nav class="flex flex-col gap-1" id="ppt-slides-menu">
+                    <!-- Slides are auto-generated here -->
+                </nav>
+            </div>
+
+            <!-- Sidebar Quick Tips -->
+            <div
+                class="mt-4 pt-4 border-t border-white/[0.08] dark:border-white/[0.04] text-[11px] text-slate-500 dark:text-slate-400">
+                <p class="flex items-center gap-1.5"><i class="fa-regular fa-keyboard text-brand-blue"></i> Стрелки ← →
+                    для навигации</p>
+            </div>
+        </aside>
+
+        <!-- Center Slide Viewport -->
+        <section class="flex flex-col gap-4">
+            <!-- Slide Container Box -->
+            <div id="slide-wrapper"
+                class="liquid-card rounded-3xl p-6 lg:p-8 flex flex-col justify-between relative overflow-hidden transition-all shadow-2xl relative">
+                <!-- Autoplay Time Indicator -->
+                <div class="absolute top-0 left-0 h-1 bg-gradient-to-r from-brand-blue to-brand-purple transition-all duration-100"
+                    id="autoplay-progress" style="width: 0%"></div>
+
+                <!-- Slide Header Banner -->
+                <div
+                    class="flex items-center justify-between border-b border-white/[0.08] dark:border-white/[0.04] pb-4 mb-4">
+                    <span id="slide-topic"
+                        class="text-[10px] font-bold tracking-widest text-brand-blue uppercase">Макроэкономика
+                        России</span>
+                    <div class="flex items-center gap-2">
+                        <button onclick="toggleAutoplay()" id="autoplay-btn"
+                            class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 hover:text-brand-blue flex items-center gap-1 transition-all mr-2 px-2.5 py-1 rounded bg-slate-200/40 dark:bg-white/5">
+                            <i class="fa-solid fa-play"></i> Автослайд
+                        </button>
+                        <span id="slide-index-counter"
+                            class="text-xs text-slate-500 dark:text-slate-400 font-semibold font-display">01 / 11</span>
+                    </div>
+                </div>
+
+                <!-- Slide Central Content Frame -->
+                <div id="slide-content" class="flex-1 min-h-[480px] flex flex-col justify-center">
+                    <!-- Dynamic content injected by JavaScript -->
+                </div>
+
+                <!-- Slide Footer Meta -->
+                <div
+                    class="flex items-center justify-between border-t border-white/[0.08] dark:border-white/[0.04] pt-4 mt-6 text-[10px] text-slate-500 dark:text-slate-400">
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-nodes text-brand-blue"></i>
+                        База данных IMF SDMX • Исторический макроанализ</span>
+                    <button onclick="openInteractiveData()"
+                        class="hover:text-brand-blue transition-colors flex items-center gap-1 font-semibold text-slate-600 dark:text-slate-300">
+                        <i class="fa-solid fa-database"></i> Показать матрицу данных
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slide Controller Bar -->
+            <div class="flex items-center justify-between px-2 gap-2 flex-wrap sm:flex-nowrap">
+                <div class="flex items-center gap-1.5 w-full sm:w-auto justify-between sm:justify-start">
+                    <button onclick="prevSlide()"
+                        class="h-9 sm:h-10 px-3 sm:px-4 rounded-xl liquid-card hover:bg-slate-200/50 dark:hover:bg-white/5 active:scale-95 transition-all flex items-center justify-center text-[11px] sm:text-xs font-bold gap-1.5">
+                        <i class="fa-solid fa-arrow-left"></i> Назад
+                    </button>
+                    
+                    <!-- Mobile Selector in the middle for mobile viewports -->
+                    <div class="lg:hidden">
+                        <select id="mobile-slide-selector" onchange="goToSlide(parseInt(this.value))"
+                            class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-[11px] rounded-xl p-2 max-w-[120px] sm:max-w-none text-slate-800 dark:text-white focus:outline-none shadow-sm">
+                            <!-- Populated by JavaScript -->
+                        </select>
+                    </div>
+
+                    <button onclick="nextSlide()"
+                        class="h-9 sm:h-10 px-3 sm:px-4 rounded-xl liquid-card hover:bg-slate-200/50 dark:hover:bg-white/5 active:scale-95 transition-all flex items-center justify-center text-[11px] sm:text-xs font-bold gap-1.5">
+                        Далее <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Interactive Actions (Hidden on mobile, shown on tablets & desktop) -->
+                <div class="hidden sm:flex items-center gap-2">
+                    <button onclick="toggleFullScreen()"
+                        class="h-10 w-10 rounded-xl liquid-card hover:bg-slate-200/50 dark:hover:bg-white/5 transition-all flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
+                        title="Полноэкранный режим">
+                        <i class="fa-solid fa-expand"></i>
+                    </button>
+                    <button onclick="window.print()"
+                        class="h-10 w-10 rounded-xl liquid-card hover:bg-slate-200/50 dark:hover:bg-white/5 transition-all flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
+                        title="Экспорт/Печать">
+                        <i class="fa-solid fa-print"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scrollable Continuous Landing Page View -->
+    <main id="scroll-view" class="relative z-10 w-full max-w-5xl mx-auto px-4 py-8 flex flex-col gap-12 hidden">
+        <!-- Landing Slide stacks will be dynamically rendered here -->
+    </main>
+
+    <!-- Global Detailed Information Modal -->
+    <div id="modal" class="fixed inset-0 z-[100] bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="liquid-card rounded-3xl max-w-4xl w-full max-h-[85vh] overflow-y-auto p-6 md:p-8 relative">
+            <button onclick="closeModal()"
+                class="absolute top-6 right-6 h-10 w-10 rounded-full bg-slate-200/50 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 transition-all flex items-center justify-center text-slate-500 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-100">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="modal-body-container">
+                <!-- Injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Footer -->
+    <footer
+        class="relative z-50 text-center py-6 border-t border-slate-300/40 dark:border-white/[0.04] text-[10px] text-slate-500 max-w-[1700px] mx-auto w-full px-6">
+        <span>Разработка: Управление макроэкономических исследований и прогнозирования © 2026</span>
+    </footer>
+
+    <!-- MAIN PRESENTATION LOGIC -->
+    <script>
+        // RAW DATASETS - Consistent with IMF SDMX specifications
+        const years = Array.from({ length: 41 }, (_, i) => 1990 + i);
+        const labelsYears = years.map(y => String(y));
+
+        const dataGDP = [
+            -3.0, -5.0, -14.5, -8.7, -12.7, -4.1, -3.58, 1.38, -5.32, 6.35,
+            10.05, 5.08, 4.75, 7.36, 7.15, 6.4, 8.17, 8.55, 5.25, -7.82,
+            4.51, 3.99, 4.02, 1.76, 0.74, -1.97, 0.19, 1.83, 2.81, 2.2,
+            -2.65, 5.87, -1.44, 4.07, 4.92, 0.98, 1.09, 1.09, 1.0, 1.0, 1.0
+        ];
+
+        const dataCPI = [
+            5.6, 160.4, 2508.8, 874.2, 307.7, 197.4, 47.8, 14.8, 27.7, 85.7,
+            20.8, 21.5, 15.8, 13.7, 10.9, 12.7, 9.7, 9.0, 14.1, 11.6,
+            6.8, 8.4, 5.1, 6.8, 7.8, 15.5, 7.0, 3.7, 2.9, 4.5,
+            3.4, 6.7, 13.7, 5.9, 8.4, 7.5, 6.0, 5.5, 4.5, 4.0, 4.0
+        ];
+
+        const dataRUB = [
+            0.12, 0.18, 0.41, 1.25, 3.55, 4.64, 5.56, 5.96, 20.65, 27.0,
+            28.16, 30.14, 31.78, 29.45, 27.75, 28.78, 26.33, 24.55, 29.38, 30.24,
+            30.48, 32.2, 30.37, 32.73, 56.26, 72.88, 60.66, 57.6, 69.47, 61.91,
+            73.88, 74.29, 70.34, 89.69, 101.68, 98.0, 95.0, 93.0, 92.0, 90.0, 90.0
+        ];
+
+        const dataRate = [
+            150, 180, 210, 210, 180, 160, 48, 28, 60, 55,
+            25, 25, 21, 16, 13, 12, 11, 10, 13, 8.75,
+            7.75, 8.0, 8.25, 5.5, 17.0, 11.0, 10.0, 7.75, 7.75, 6.25,
+            4.25, 8.5, 7.5, 16.0, 21.0, 19.0, 15.0, 12.0, 10.0, 8.0, 7.0
+        ];
+
+        const dataUnemp = [
+            4.2, 4.8, 5.2, 5.9, 8.1, 8.3, 9.26, 10.81, 11.88, 13.03,
+            10.56, 8.94, 8.04, 8.23, 7.73, 7.15, 7.05, 6.03, 6.23, 8.24,
+            7.36, 6.51, 5.45, 5.5, 5.16, 5.58, 5.53, 5.2, 4.8, 4.6,
+            5.77, 4.83, 3.95, 3.17, 2.51, 2.23, 2.39, 2.63, 3.18, 3.27, 3.35
+        ];
+
+        const dataOil = [
+            23.7, 20.0, 19.3, 16.9, 15.8, 17.0, 20.6, 19.1, 12.7, 17.9,
+            28.5, 24.4, 25.0, 28.9, 38.3, 54.6, 65.1, 72.7, 97.6, 61.7,
+            79.6, 111.3, 112.0, 108.7, 98.9, 52.4, 43.7, 54.2, 71.1, 64.3,
+            41.8, 70.9, 100.9, 82.6, 79.0, 75.0, 73.0, 70.0, 68.0, 65.0, 65.0
+        ];
+
+        const mCPIlabels = ['1992-02', '1992-03', '1992-04', '1992-05', '1992-06', '1992-07', '1992-08', '1992-09', '1992-10', '1992-11', '1992-12', '1993-01', '1993-02', '1993-03', '1993-04', '1993-05', '1993-06', '1993-07', '1993-08', '1993-09', '1993-10', '1993-11', '1993-12', '1994-01'];
+        const mCPIvals = [38.0, 29.9, 21.7, 11.9, 19.1, 10.6, 8.6, 11.5, 22.9, 26.1, 25.2, 25.8, 24.7, 20.1, 18.7, 18.1, 19.9, 22.4, 26.0, 23.0, 19.5, 16.4, 12.5, 17.9];
+
+        const pal = {
+            blue: '#2997ff',
+            green: '#30d158',
+            orange: '#ff9f0a',
+            red: '#ff453a',
+            purple: '#bf5af2',
+            yellow: '#ffd60a',
+            gray: '#86868b'
+        };
+
+        // Slide list definitions
+        const slidesData = [
+            {
+                id: 0,
+                topic: "Историческое введение",
+                title: "Эволюция макроэкономики России",
+                subtitle: "Комплексный сорокалетний анализ развития финансовой системы",
+                render: () => `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                        <div class="lg:col-span-6 flex flex-col justify-center space-y-4">
+                            <span class="text-xs font-bold tracking-widest text-brand-blue uppercase">Аналитический доклад</span>
+                            <h3 class="text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight font-display">
+                                Сорокалетний путь <span class="bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent">структурных трансформаций</span>
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                                Анализ охватывает ключевые вехи развития: от болезненного транзита и гиперинфляции 1990-х годов к сырьевому буму 2000-х, последующему формированию защитных механизмов (бюджетное правило, инфляционный таргет) в 2010-х и функционированию экономики на пределе производственных мощностей в 2020-х.
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <span class="w-2.5 h-2.5 rounded-full bg-brand-green animate-pulse"></span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Интерактивный плеер на базе IMF SDMX API 2026/2027</span>
+                            </div>
+                        </div>
+
+                        <!-- 4 Pillars Grid instead of Unsplash sports sedan -->
+                        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                            <div onclick="openKPIModal('ВВП')" class="p-4 rounded-2xl liquid-inner-card cursor-pointer">
+                                <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-1">Реальный ВВП (2024)</div>
+                                <div class="text-2xl font-extrabold text-brand-blue font-display">+4.92%</div>
+                                <div class="text-[10px] text-brand-green mt-1 font-medium"><i class="fa-solid fa-circle-up"></i> Оборонно-пром. импульс</div>
+                            </div>
+                            <div onclick="openKPIModal('Ставка')" class="p-4 rounded-2xl liquid-inner-card cursor-pointer">
+                                <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-1">Ставка ЦБ РФ</div>
+                                <div class="text-2xl font-extrabold text-brand-orange font-display">21.0%</div>
+                                <div class="text-[10px] text-brand-orange mt-1 font-medium"><i class="fa-solid fa-triangle-exclamation"></i> Экстремальный нажим</div>
+                            </div>
+                            <div onclick="openKPIModal('Безработица')" class="p-4 rounded-2xl liquid-inner-card cursor-pointer">
+                                <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-1">Безработица (2025)</div>
+                                <div class="text-2xl font-extrabold text-brand-green font-display">2.23%</div>
+                                <div class="text-[10px] text-brand-red mt-1 font-medium"><i class="fa-solid fa-user-lock"></i> Предельный дефицит труда</div>
+                            </div>
+                            <div onclick="openKPIModal('Инфляция')" class="p-4 rounded-2xl liquid-inner-card cursor-pointer">
+                                <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-1">Инфляция CPI</div>
+                                <div class="text-2xl font-extrabold text-brand-red font-display">8.40%</div>
+                                <div class="text-[10px] text-brand-orange mt-1 font-medium"><i class="fa-solid fa-temperature-three-quarters"></i> Сильный перегрев</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-6 pt-4 border-t border-white/[0.08] dark:border-white/[0.04]">
+                        <div class="p-2 bg-brand-red/5 rounded-xl border border-brand-red/10 text-center cursor-pointer hover:bg-brand-red/10 transition-colors" onclick="goToSlide(7)">
+                            <span class="text-[9px] font-extrabold text-brand-red uppercase block">1990–1999</span>
+                            <span class="text-[10px] text-slate-600 dark:text-slate-400 block font-medium">Шоковый кризис</span>
+                        </div>
+                        <div class="p-2 bg-brand-green/5 rounded-xl border border-brand-green/10 text-center cursor-pointer hover:bg-brand-green/10 transition-colors" onclick="goToSlide(8)">
+                            <span class="text-[9px] font-extrabold text-brand-green uppercase block">2000–2009</span>
+                            <span class="text-[10px] text-slate-600 dark:text-slate-400 block font-medium">Золотой суперцикл</span>
+                        </div>
+                        <div class="p-2 bg-brand-orange/5 rounded-xl border border-brand-orange/10 text-center cursor-pointer hover:bg-brand-orange/10 transition-colors" onclick="goToSlide(9)">
+                            <span class="text-[9px] font-extrabold text-brand-orange uppercase block">2010–2019</span>
+                            <span class="text-[10px] text-slate-600 dark:text-slate-400 block font-medium">Адаптивный шок</span>
+                        </div>
+                        <div class="p-2 bg-brand-blue/5 rounded-xl border border-brand-blue/10 text-center cursor-pointer hover:bg-brand-blue/10 transition-colors" onclick="goToSlide(10)">
+                            <span class="text-[9px] font-extrabold text-brand-blue uppercase block">2020–2030</span>
+                            <span class="text-[10px] text-slate-600 dark:text-slate-400 block font-medium">Структурный лимит</span>
+                        </div>
+                    </div>
+                `,
+                initChart: () => { }
+            },
+            {
+                id: 1,
+                topic: "Модель: Экономика как автомобиль",
+                title: "Экономика как автомобиль: как читать 4 ключевых макропоказателя",
+                subtitle: "ВВП, инфляция, ставка ЦБ и курс рубля через призму физической аналогии",
+                render: () => `
+                    <div class="grid grid-cols-12 gap-6 items-center flex-grow py-2 text-slate-800 dark:text-slate-200" id="car-analogies-container">
+                        
+                        <!-- Left blocks (GDP and Rate) -->
+                        <div class="col-span-12 lg:col-span-3 flex flex-col justify-between space-y-4">
+                            <div class="p-4 rounded-2xl liquid-inner-card border-l-4 border-brand-blue cursor-pointer">
+                                <h4 class="text-xs font-bold text-brand-blue flex items-center gap-1.5 uppercase font-display">
+                                    <i class="fa-solid fa-gauge-high"></i> ВВП = Скорость автомобиля
+                                </h4>
+                                <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                                    Основной темп движения экономической системы. Разгон (рост), резкое замедление или уход в занос и рецессию (спад).
+                                </p>
+                            </div>
+                            <div class="p-4 rounded-2xl liquid-inner-card border-l-4 border-brand-orange cursor-pointer">
+                                <h4 class="text-xs font-bold text-brand-orange flex items-center gap-1.5 uppercase font-display">
+                                    <i class="fa-solid fa-circle-dot"></i> Ставка ЦБ = Педаль тормоза
+                                </h4>
+                                <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                                    Инструмент охлаждения перегретых рынков. Когда спрос летит слишком быстро, ЦБ зажимает дисковые тормоза высокой ставки.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Center Engine and Chassis Vector Representation with Generated Image -->
+                        <div class="col-span-12 lg:col-span-6 flex flex-col justify-center items-center">
+                            <div class="relative w-full h-[180px] sm:h-[250px] overflow-hidden rounded-3xl border border-slate-300 dark:border-white/[0.08] bg-slate-950/20 shadow-2xl flex items-center justify-center">
+                                <img src="./nano_banana_pro_car.png" 
+                                     class="w-full h-full object-cover" 
+                                     alt="Сгенерированная приборная панель и автомобиль концепт-кара Nano Banana Pro">
+                                
+                                <!-- Floating metadata labels for premium vibe -->
+                                <div class="absolute top-3 left-4 text-[8px] font-bold text-brand-blue bg-white/90 dark:bg-slate-900/90 px-1.5 py-0.5 rounded border border-brand-blue/20 uppercase">
+                                    <i class="fa-solid fa-gauge-high"></i> Приборная панель
+                                </div>
+                                <div class="absolute bottom-3 right-4 text-[8px] font-bold text-brand-green bg-white/90 dark:bg-slate-900/90 px-1.5 py-0.5 rounded border border-brand-green/20 uppercase">
+                                    <i class="fa-solid fa-car"></i> Аналогия с автомобилем
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right blocks (Inflation and FX) -->
+                        <div class="col-span-12 lg:col-span-3 flex flex-col justify-between space-y-4">
+                            <div class="p-4 rounded-2xl liquid-inner-card border-l-4 border-brand-red cursor-pointer">
+                                <h4 class="text-xs font-bold text-brand-red flex items-center gap-1.5 uppercase font-display">
+                                    <i class="fa-solid fa-temperature-high"></i> Инфляция = Температура
+                                </h4>
+                                <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                                    Перегрев двигателя внутреннего сгорания. Слишком много вливаемого топлива (спроса) вызывает тепловой взрыв и закипание (рост цен).
+                                </p>
+                            </div>
+                            <div class="p-4 rounded-2xl liquid-inner-card border-l-4 border-brand-green cursor-pointer">
+                                <h4 class="text-xs font-bold text-brand-green flex items-center gap-1.5 uppercase font-display">
+                                    <i class="fa-solid fa-arrows-left-right"></i> Курс рубля = Амортизатор
+                                </h4>
+                                <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                                    Плавающий подвес финансового шасси. Гасит трансграничные внешние толчки и ямы на сырьевой дороге, предотвращая перелом кузова.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Road of Obstacles (Timeline of Crises) exactly matching WhatsApp Image -->
+                    <div class="pt-2.5 border-t border-white/[0.08] dark:border-white/[0.04]">
+                        <span class="text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold block mb-2 text-center">Дорога с препятствиями (Хронология кризисов)</span>
+                        <div class="relative h-20 w-full px-4 text-slate-800 dark:text-slate-200">
+                            <!-- Mountain Spline wave curve path in background -->
+                            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 80" fill="none" preserveAspectRatio="none">
+                                <path d="M 0,55 Q 120,15 200,10 Q 300,75 400,60 Q 500,15 600,65 Q 700,25 800,40" stroke="var(--brand-blue)" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M 0,55 Q 120,15 200,10 Q 300,75 400,60 Q 500,15 600,65 Q 700,25 800,40 L 800,80 L 0,80 Z" fill="url(#road-grad)" opacity="0.08"/>
+                                <defs>
+                                    <linearGradient id="road-grad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="var(--brand-blue)"/>
+                                        <stop offset="100%" stop-color="transparent"/>
+                                    </linearGradient>
+                                </defs>
+                                <!-- Peak Circle Nodes -->
+                                <circle cx="200" cy="10" r="4.5" fill="var(--brand-red)" class="animate-pulse"/>
+                                <circle cx="400" cy="60" r="4.5" fill="var(--brand-orange)" class="animate-pulse"/>
+                                <circle cx="530" cy="35" r="4.5" fill="var(--brand-blue)" class="animate-pulse"/>
+                                <circle cx="650" cy="40" r="4.5" fill="var(--brand-red)" class="animate-pulse"/>
+                            </svg>
+
+                            <!-- Node Floating Labels matching WhatsApp text perfectly -->
+                            <div class="absolute top-[8px] left-[18%] text-center leading-none">
+                                <div class="text-[8px] font-black text-brand-red bg-white/70 dark:bg-slate-900/60 px-1 rounded">1998</div>
+                                <div class="text-[6px] text-slate-500 dark:text-slate-400 mt-0.5">Инфляция: 2333% (1992)</div>
+                            </div>
+                            <div class="absolute top-[32px] left-[42%] text-center leading-none">
+                                <div class="text-[8px] font-black text-brand-orange bg-white/70 dark:bg-slate-900/60 px-1 rounded">2008</div>
+                                <div class="text-[6px] text-slate-500 dark:text-slate-400 mt-0.5">Ставка: 150% (1998)</div>
+                            </div>
+                            <div class="absolute top-[18px] left-[59%] text-center leading-none">
+                                <div class="text-[8px] font-black text-brand-blue bg-white/70 dark:bg-slate-900/60 px-1 rounded">2014</div>
+                                <div class="text-[6px] text-slate-500 dark:text-slate-400 mt-0.5">ВВП: -2.1% (2022)</div>
+                            </div>
+                            <div class="absolute top-[14px] left-[76%] text-center leading-none">
+                                <div class="text-[8px] font-black text-brand-red bg-white/70 dark:bg-slate-900/60 px-1 rounded">2022+</div>
+                                <div class="text-[6px] text-slate-500 dark:text-slate-400 mt-0.5">Инфляция: 21% (2024)</div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                initChart: () => { }
+            },
+            {
+                id: 2,
+                topic: "ВВП: Динамика роста",
+                title: "ВВП: Темп движения системы",
+                subtitle: "Реальный рост ВВП (IMF World Economic Outlook) за сорок лет",
+                render: () => `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-grow">
+                        <div class="lg:col-span-4 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-brand-green uppercase tracking-wider block mb-1">Фактические темпы</span>
+                                <h4 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 mb-2 font-display">Траектории валового продукта</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    Анализ сорока лет развития делит экономическую историю страны на три четкие фазы: катастрофический спад после развала СССР, форсированное восстановительное догоняющее развитие на фоне роста Brent и постепенный уход в структурные ресурсные пределы.
+                                </p>
+                            </div>
+
+                            <div class="space-y-2 mt-4">
+                                <div class="p-3.5 rounded-xl liquid-inner-card">
+                                    <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-0.5">Рекордный спад</div>
+                                    <div class="text-base font-extrabold text-brand-red font-display">-14.50% (1992)</div>
+                                    <p class="text-[10px] text-slate-400 leading-normal mt-1">Крах плановых поставок сырья.</p>
+                                </div>
+                                <div class="p-3.5 rounded-xl liquid-inner-card">
+                                    <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-0.5">Пик разгона</div>
+                                    <div class="text-base font-extrabold text-brand-green font-display">+10.05% (2000)</div>
+                                    <p class="text-[10px] text-slate-400 leading-normal mt-1">Очищающий эффект дефолта.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-8 p-4 rounded-3xl bg-slate-900/10 dark:bg-black/10 border border-white/[0.08] dark:border-white/[0.04] cursor-pointer relative" onclick="openDetailsModal('ch_gdp')">
+                            <div class="h-full min-h-[280px]">
+                                <canvas id="ch_gdp"></canvas>
+                            </div>
+                            <span class="absolute bottom-2 right-4 text-[9px] text-slate-500 font-medium"><i class="fa-solid fa-magnifying-glass-plus"></i> Кликните для просмотра таблицы IMF</span>
+                        </div>
+                    </div>
+                `,
+                initChart: () => {
+                    initChartInstance('ch_gdp', {
+                        type: 'bar',
+                        data: {
+                            labels: labelsYears,
+                            datasets: [{
+                                label: 'ВВП (% г/г)',
+                                data: dataGDP,
+                                backgroundColor: dataGDP.map(v => v < 0 ? '#ff453a' : v > 3.5 ? '#30d158' : '#ff9f0a'),
+                                borderRadius: 4
+                            }]
+                        },
+                        options: getChartOptions('Реальный темп роста ВВП РФ (1990–2030, %)')
+                    });
+                }
+            },
+            {
+                id: 3,
+                topic: "Инфляция CPI",
+                title: "Инфляция: Температура перегрева",
+                subtitle: "Эволюция инфляции от разрушительного шока 90-х к таргетированию",
+                render: () => `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-grow">
+                        <div class="lg:col-span-4 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-brand-red uppercase tracking-wider block mb-1">Ценовая динамика</span>
+                                <h4 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 mb-2 font-display">Гиперинфляционные волны</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    Отмена советских фиксированных цен привела к шоковому обесценению валюты в 1992 году с отметкой гиперинфляции выше 2500%. Стабилизация на уровне целевых 4% произошла только к 2017 году после официального введения ДК-таргетирования.
+                                </p>
+                            </div>
+
+                            <div class="space-y-2 mt-4">
+                                <div class="p-3.5 rounded-xl liquid-inner-card">
+                                    <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-0.5">Логарифмическая шкала</div>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-normal">Позволяет сопоставить экстремальный шок 1992 года с текущими отклонениями в 2024-2026 гг.</p>
+                                </div>
+                                <div class="p-3.5 rounded-xl liquid-inner-card">
+                                    <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-0.5">Таргет Банка России</div>
+                                    <div class="text-base font-extrabold text-brand-green font-display">4.0% г/г</div>
+                                    <p class="text-[10px] text-slate-400 leading-normal mt-1">Официальный якорь ценовой стабильности.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-3 rounded-2xl bg-slate-900/10 dark:bg-black/10 border border-white/[0.08] dark:border-white/[0.04] cursor-pointer" onclick="openDetailsModal('ch_cpi')">
+                                <div class="h-full min-h-[240px]">
+                                    <canvas id="ch_cpi"></canvas>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-slate-900/10 dark:bg-black/10 border border-white/[0.08] dark:border-white/[0.04] cursor-pointer" onclick="openDetailsModal('ch_cpi_m')">
+                                <div class="h-full min-h-[240px]">
+                                    <canvas id="ch_cpi_m"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                initChart: () => {
+                    initChartInstance('ch_cpi', {
+                        type: 'line',
+                        data: {
+                            labels: labelsYears,
+                            datasets: [{
+                                label: 'Инфляция CPI (% г/г, лог. шкала)',
+                                data: dataCPI,
+                                borderColor: '#ff453a',
+                                borderWidth: 2,
+                                pointRadius: 1.5,
+                                tension: 0.2,
+                                fill: false
+                            }]
+                        },
+                        options: {
+                            ...getChartOptions('Инфляция (CPI г/г, логарифмическая шкала)'),
+                            scales: {
+                                y: { type: 'logarithmic', title: { display: true, text: 'Проценты (%)' } }
+                            }
+                        }
+                    });
+
+                    initChartInstance('ch_cpi_m', {
+                        type: 'bar',
+                        data: {
+                            labels: mCPIlabels,
+                            datasets: [{
+                                label: 'Ежемесячная инфляция (%)',
+                                data: mCPIvals,
+                                backgroundColor: '#ff9f0a',
+                                borderRadius: 3
+                            }]
+                        },
+                        options: getChartOptions('Шоковая месячная инфляция MoM (1992–1994)')
+                    });
+                }
+            },
+            {
+                id: 4,
+                topic: "Ключевая ставка ЦБ",
+                title: "Ставка ДКП: Педаль тормоза",
+                subtitle: "Регулирование спроса и инфляции с помощью процентного канала",
+                render: () => `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-grow">
+                        <div class="lg:col-span-4 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-brand-orange uppercase tracking-wider block mb-1">Регуляторный нажим</span>
+                                <h4 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 mb-2 font-display">Динамика процентного канала</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    История ужесточения денежно-кредитной политики Банка России отражает экстренный нажим на тормозную педаль во время перегревания конъюнктуры. Ступени жесткости в конце 2024 года (21.0%) были обусловлены острой нехваткой трудовых резервов.
+                                </p>
+                            </div>
+
+                            <div class="space-y-2 mt-4">
+                                <div class="p-3.5 rounded-xl liquid-inner-card">
+                                    <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-0.5">Шоковый пик 1993</div>
+                                    <div class="text-base font-extrabold text-brand-red font-display">210.0% г/г</div>
+                                    <p class="text-[10px] text-slate-400 leading-normal mt-1">Борьба с обесценением национальной валюты.</p>
+                                </div>
+                                <div class="p-3.5 rounded-xl liquid-inner-card">
+                                    <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-0.5">Кризисный пик 2022</div>
+                                    <div class="text-base font-extrabold text-brand-orange font-display">20.0% г/г</div>
+                                    <p class="text-[10px] text-slate-400 leading-normal mt-1">Остановка панического вывода вкладов.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-8 p-4 rounded-3xl bg-slate-900/10 dark:bg-black/10 border border-white/[0.08] dark:border-white/[0.04] cursor-pointer" onclick="openDetailsModal('ch_rate')">
+                            <div class="h-full min-h-[280px]">
+                                <canvas id="ch_rate"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                initChart: () => {
+                    initChartInstance('ch_rate', {
+                        type: 'line',
+                        data: {
+                            labels: labelsYears,
+                            datasets: [{
+                                label: 'Ключевая ставка ЦБ РФ (%)',
+                                data: dataRate,
+                                borderColor: '#ff9f0a',
+                                borderWidth: 2.5,
+                                tension: 0.15,
+                                fill: false
+                            }]
+                        },
+                        options: getChartOptions('История изменения учетной ставки РФ (%)')
+                    });
+                }
+            },
+            {
+                id: 5,
+                topic: "Валютный курс RUB/USD",
+                title: "Валютный курс: Амортизатор внешних ударов",
+                subtitle: "Переход к плавающему валютному курсу как важнейшая веха суверенитета",
+                render: () => `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-grow">
+                        <div class="lg:col-span-4 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-brand-blue uppercase tracking-wider block mb-1">Финансовый буфер</span>
+                                <h4 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 mb-2 font-display">Свободное плавание валюты</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    В ноябре 2014 года ЦБ отказался от фиксированного валютного коридора, тратившего золотовалютные резервы. Свободно плавающий курс взял на себя всю тяжесть падения сырьевых рынков, став надежным гасителем внешних трансграничных шоков.
+                                </p>
+                            </div>
+
+                            <div class="space-y-2 mt-4">
+                                <div class="p-3.5 rounded-xl liquid-inner-card">
+                                    <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-0.5">Вектор 1990-х</div>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-normal">Хаотическая гиперинфляционная девальвация.</p>
+                                </div>
+                                <div class="p-3.5 rounded-xl liquid-inner-card">
+                                    <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-0.5">Вектор с 2014 года</div>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-normal">Эластичная автоматическая подстройка цен на нефть.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-8 p-4 rounded-3xl bg-slate-900/10 dark:bg-black/10 border border-white/[0.08] dark:border-white/[0.04] cursor-pointer" onclick="openDetailsModal('ch_rub')">
+                            <div class="h-full min-h-[280px]">
+                                <canvas id="ch_rub"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                initChart: () => {
+                    initChartInstance('ch_rub', {
+                        type: 'line',
+                        data: {
+                            labels: labelsYears,
+                            datasets: [{
+                                label: 'Курс RUB/USD (лог. шкала)',
+                                data: dataRUB,
+                                borderColor: '#2997ff',
+                                borderWidth: 2,
+                                tension: 0.15,
+                                fill: false
+                            }]
+                        },
+                        options: {
+                            ...getChartOptions('Номинальный курс RUB/USD (конец периода, лог. шкала)'),
+                            scales: {
+                                y: { type: 'logarithmic' }
+                            }
+                        }
+                    });
+                }
+            },
+            {
+                id: 6,
+                topic: "Занятость и кадры",
+                title: "Кадровый голод: Ограничитель ДВС",
+                subtitle: "Исторический дефицит сотрудников на рынке труда России",
+                render: () => `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-grow">
+                        <div class="lg:col-span-4 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-brand-purple uppercase tracking-wider block mb-1">Ресурсный барьер</span>
+                                <h4 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 mb-2 font-display">Пределы рынка труда</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    Падение безработицы до экстремального уровня в 2.2% в 2025 году сигнализирует о физическом исчерпании свободных рук. Этот жесткий кадровый голод лимитирует разгон производства товаров, опережая потенциальную производительность.
+                                </p>
+                            </div>
+
+                            <div class="space-y-2 mt-4">
+                                <div class="p-3.5 rounded-xl liquid-inner-card">
+                                    <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-0.5">Кризис кадров (1999)</div>
+                                    <div class="text-base font-extrabold text-slate-400 font-display">13.03% безработицы</div>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-normal mt-1">Огромный избыток незанятого населения.</p>
+                                </div>
+                                <div class="p-3.5 rounded-xl liquid-inner-card">
+                                    <div class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-0.5">Кадры сегодня (2025)</div>
+                                    <div class="text-base font-extrabold text-brand-purple font-display">2.23% безработицы</div>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-normal mt-1">Полная занятость и жесткая зарплатная гонка.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-8 p-4 rounded-3xl bg-slate-900/10 dark:bg-black/10 border border-white/[0.08] dark:border-white/[0.04] cursor-pointer" onclick="openDetailsModal('ch_unemp')">
+                            <div class="h-full min-h-[280px]">
+                                <canvas id="ch_unemp"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                initChart: () => {
+                    initChartInstance('ch_unemp', {
+                        type: 'line',
+                        data: {
+                            labels: labelsYears,
+                            datasets: [{
+                                label: 'Уровень безработицы (%)',
+                                data: dataUnemp,
+                                borderColor: '#bf5af2',
+                                backgroundColor: 'rgba(191, 90, 242, 0.08)',
+                                fill: true,
+                                tension: 0.15
+                            }]
+                        },
+                        options: getChartOptions('Безработица экономически активного населения (%)')
+                    });
+                }
+            },
+            {
+                id: 7,
+                topic: "Глубокий разбор 1990-х",
+                title: "Шок 1990-х: Трансформация и развал систем",
+                subtitle: "Крах советского распределения, переход к свободному ценообразованию",
+                render: () => `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-grow">
+                        <div class="lg:col-span-4 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-brand-red uppercase tracking-wider block mb-1">Свободные цены</span>
+                                <h4 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 mb-2 font-display">Макрокатастрофа перехода</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    Разрушение союзных торговых связей, запуск ваучерной приватизации, распределившей активы промышленного сектора, и потеря эмиссионного рублёвого контроля на постсоветском пространстве.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-brand-red/5 border border-brand-red/10 text-xs text-slate-600 dark:text-slate-300">
+                                <h5 class="font-bold flex items-center gap-1 text-brand-red mb-1 uppercase text-[10px]"><i class="fa-solid fa-triangle-exclamation"></i> Результат шока:</h5>
+                                Масштабное падение уровня жизни и накоплений населения, завершившееся долговым дефолтом ГКО в августе 1998 года.
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-8 p-4 rounded-3xl bg-slate-900/10 dark:bg-black/10 border border-white/[0.08] dark:border-white/[0.04] flex flex-col justify-center">
+                            <span class="text-[10px] uppercase font-bold text-slate-500 mb-3 block text-center font-display">Историческая макроматрица 90-х</span>
+                            <div class="overflow-x-auto rounded-xl border border-white/[0.08] dark:border-white/[0.04]">
+                                <table class="w-full text-left border-collapse text-[11px] text-slate-800 dark:text-slate-300">
+                                    <thead>
+                                        <tr class="bg-slate-500/5 text-slate-500 font-bold border-b border-white/[0.08] dark:border-white/[0.04]">
+                                            <th class="py-2.5 px-3">Индикатор</th>
+                                            <th class="py-2.5 px-3 text-brand-red">1992</th>
+                                            <th class="py-2.5 px-3 text-brand-orange">1995</th>
+                                            <th class="py-2.5 px-3 text-brand-red">1998</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/[0.08] dark:divide-white/[0.04] font-mono">
+                                        <tr class="hover:bg-slate-500/5">
+                                            <td class="py-2.5 px-3 font-sans font-medium text-slate-800 dark:text-slate-200">Реальный ВВП (% г/г)</td>
+                                            <td class="py-2.5 px-3 text-brand-red">-14.50%</td>
+                                            <td class="py-2.5 px-3 text-brand-red">-4.10%</td>
+                                            <td class="py-2.5 px-3 text-brand-red">-5.32%</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-500/5">
+                                            <td class="py-2.5 px-3 font-sans font-medium text-slate-800 dark:text-slate-200">Инфляция CPI (% г/г)</td>
+                                            <td class="py-2.5 px-3 text-brand-red">2508.80%</td>
+                                            <td class="py-2.5 px-3 text-brand-orange">197.40%</td>
+                                            <td class="py-2.5 px-3 text-brand-orange">27.70%</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-500/5">
+                                            <td class="py-2.5 px-3 font-sans font-medium text-slate-800 dark:text-slate-200">Курс RUB/USD</td>
+                                            <td class="py-2.5 px-3">0.41</td>
+                                            <td class="py-2.5 px-3">4.64</td>
+                                            <td class="py-2.5 px-3 text-brand-red">20.65</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-500/5">
+                                            <td class="py-2.5 px-3 font-sans font-medium text-slate-800 dark:text-slate-200">Безработица (%)</td>
+                                            <td class="py-2.5 px-3">5.20%</td>
+                                            <td class="py-2.5 px-3">8.30%</td>
+                                            <td class="py-2.5 px-3 text-brand-red">11.88%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                initChart: () => { }
+            },
+            {
+                id: 8,
+                topic: "Сырьевой бум 2000-х",
+                title: "Золотая декада: Восстановительный бум",
+                subtitle: "Экономический подъем на фоне растущих цен на энергоносители Brent",
+                render: () => `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-grow">
+                        <div class="lg:col-span-4 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-brand-green uppercase tracking-wider block mb-1">Ресурсная опора</span>
+                                <h4 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 mb-2 font-display">Сырьевой суперцикл</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    Десятилетие бурного роста цен на нефть с $12 до $98 за баррель обеспечило средние темпы роста ВВП на уровне около 7% ежегодно. Запуск свободных советских мощностей поддержал расширение потребительского рынка.
+                                </p>
+                            </div>
+
+                            <div class="space-y-2 mt-4">
+                                <div class="p-3.5 rounded-xl liquid-inner-card flex items-start gap-2.5">
+                                    <i class="fa-solid fa-vault text-brand-green mt-0.5"></i>
+                                    <div>
+                                        <span class="text-[9px] uppercase tracking-wider text-slate-400 font-bold block">Стабфонд РФ</span>
+                                        <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-normal">Аккумуляция избыточных сырьевых долларов.</p>
+                                    </div>
+                                </div>
+                                <div class="p-3.5 rounded-xl liquid-inner-card flex items-start gap-2.5">
+                                    <i class="fa-solid fa-hand-holding-dollar text-brand-blue mt-0.5"></i>
+                                    <div>
+                                        <span class="text-[9px] uppercase tracking-wider text-slate-400 font-bold block">Досрочный возврат долгов</span>
+                                        <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-normal">Полный расчет с Парижским клубом ($22 млрд).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-8 p-4 rounded-3xl bg-slate-900/10 dark:bg-black/10 border border-white/[0.08] dark:border-white/[0.04] cursor-pointer" onclick="openDetailsModal('ch_oil_gdp')">
+                            <div class="h-full min-h-[280px]">
+                                <canvas id="ch_oil_gdp"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                initChart: () => {
+                    initChartInstance('ch_oil_gdp', {
+                        data: {
+                            labels: labelsYears.slice(10, 30),
+                            datasets: [
+                                { type: 'bar', label: 'ВВП (% г/г)', data: dataGDP.slice(10, 30), backgroundColor: '#30d158', yAxisID: 'y', borderRadius: 2 },
+                                { type: 'line', label: 'Brent ($/bbl)', data: dataOil.slice(10, 30), borderColor: '#ff9f0a', borderWidth: 2.5, yAxisID: 'y1', tension: 0.15, fill: false }
+                            ]
+                        },
+                        options: {
+                            ...getChartOptions('Связь роста ВВП с котировками Brent'),
+                            scales: {
+                                y: { position: 'left', title: { display: true, text: 'ВВП (%)' } },
+                                y1: { position: 'right', title: { display: true, text: 'Brent ($/барр)' }, grid: { drawOnChartArea: false } }
+                            }
+                        }
+                    });
+                }
+            },
+            {
+                id: 9,
+                topic: "Санкционный маневр 2014",
+                title: "Шок 2014: Адаптация и бюджетное правило",
+                subtitle: "Реакция системы на первые пакеты ограничений и падение сырьевых доходов",
+                render: () => `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-grow">
+                        <div class="lg:col-span-4 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-brand-orange uppercase tracking-wider block mb-1">Смягчение удара</span>
+                                <h4 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 mb-2 font-display">Бюджетная стерилизация</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    Резкий обвал сырья со $110 до $50 наложился на запуск первых западных санкций. Внедрение обновленного Бюджетного правила позволило сберегать сырьевые излишки в ФНБ, отвязав текущие траты бюджета от ценовой сырьевой волатильности.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-brand-orange/5 border border-brand-orange/10 text-xs text-slate-600 dark:text-slate-300">
+                                <h5 class="font-bold text-brand-orange flex items-center gap-1 mb-1 uppercase text-[10px]"><i class="fa-solid fa-rotate"></i> Импортозамещение:</h5>
+                                Падение импорта простимулировало запуск агропромышленного комплекса и внутренний спрос.
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-8 p-4 rounded-3xl bg-slate-900/10 dark:bg-black/10 border border-white/[0.08] dark:border-white/[0.04] cursor-pointer" onclick="openDetailsModal('ch_2014')">
+                            <div class="h-full min-h-[280px]">
+                                <canvas id="ch_2014"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                initChart: () => {
+                    initChartInstance('ch_2014', {
+                        type: 'line',
+                        data: {
+                            labels: labelsYears.slice(20, 30),
+                            datasets: [
+                                { label: 'ВВП (%)', data: dataGDP.slice(20, 30), borderColor: '#30d158', fill: false, tension: 0.15 },
+                                { label: 'Инфляция (%)', data: dataCPI.slice(20, 30), borderColor: '#ff453a', fill: false, tension: 0.15 },
+                                { label: 'Курс RUB/USD', data: dataRUB.slice(20, 30), borderColor: '#2997ff', borderDash: [4, 4], fill: false, tension: 0.15 }
+                            ]
+                        },
+                        options: getChartOptions('Ключевые индикаторы амортизации внешнего шока 2014 года')
+                    });
+                }
+            },
+            {
+                id: 10,
+                topic: "Прогнозы 2020–2030",
+                title: "Развитие до 2030 года: Три сценария ДКП",
+                subtitle: "Функционирование на пределе возможностей и потенциальные горизонты",
+                render: () => `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-grow">
+                        <div class="lg:col-span-5 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-brand-blue uppercase tracking-wider block mb-1">Будущие горизонты</span>
+                                <h4 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 mb-2 font-display">Траектории развития ВВП</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-4">
+                                    Анализ трех прогнозных контуров в условиях высокого перегрева потребительских и оборонных конвейеров:
+                                </p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="p-3 rounded-xl border-l-4 border-brand-blue bg-brand-blue/5 text-[11px] leading-normal text-slate-700 dark:text-slate-300">
+                                    <strong class="text-brand-blue font-bold block mb-0.5">Базовый сценарий IMF (0.7 - 1.5%)</strong>
+                                    Медленная адаптация, постепенное сжатие государственного стимула при нехватке кадров.
+                                </div>
+                                <div class="p-3 rounded-xl border-l-4 border-brand-green bg-brand-green/5 text-[11px] leading-normal text-slate-700 dark:text-slate-300">
+                                    <strong class="text-brand-green font-bold block mb-0.5">Оптимистичный сценарий (1.5 - 2.5%)</strong>
+                                    Быстрый трансфер технологий, роботизация и резкий рост производительности.
+                                </div>
+                                <div class="p-3 rounded-xl border-l-4 border-brand-red bg-brand-red/5 text-[11px] leading-normal text-slate-700 dark:text-slate-300">
+                                    <strong class="text-brand-red font-bold block mb-0.5">Стрессовый сценарий (до -1.0%)</strong>
+                                    Ужесточение вторичных ограничений, падение цен на Brent.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 p-4 rounded-3xl bg-slate-900/10 dark:bg-black/10 border border-white/[0.08] dark:border-white/[0.04] cursor-pointer" onclick="openDetailsModal('ch_scenario')">
+                            <div class="h-full min-h-[280px]">
+                                <canvas id="ch_scenario"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                initChart: () => {
+                    initChartInstance('ch_scenario', {
+                        type: 'line',
+                        data: {
+                            labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'],
+                            datasets: [
+                                { label: 'Базовый', data: [4.92, 0.98, 1.09, 1.09, 1.0, 1.0, 1.0], borderColor: '#2997ff', borderWidth: 3.5, fill: false, tension: 0.15 },
+                                { label: 'Оптимистичный', data: [4.92, 2.5, 2.2, 2.0, 1.8, 1.7, 1.5], borderColor: '#30d158', borderDash: [4, 4], fill: false, tension: 0.15 },
+                                { label: 'Кризисный/Стрессовый', data: [4.92, 0.5, -0.5, -1.0, -0.8, -0.5, 0.0], borderColor: '#ff453a', borderDash: [2, 2], fill: false, tension: 0.15 }
+                            ]
+                        },
+                        options: getChartOptions('Прогнозы изменения ВВП РФ до 2030 года (%)')
+                    });
+                }
+            }
+        ];
+
+        // App States
+        let currentSlideIndex = 0;
+        let viewMode = 'ppt';
+        let chartInstances = {};
+        let isDarkMode = true;
+        let isAutoplayActive = false;
+        let autoplayTimer = null;
+        let autoplayStartTime = 0;
+        const AUTOPLAY_INTERVAL = 9000; // 9 seconds per slide
+
+        // Theme Manager
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                isDarkMode = false;
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                html.classList.remove('light');
+                isDarkMode = true;
+                localStorage.setItem('theme', 'dark');
+            }
+            updateChartThemes();
+            // Re-render active slide elements
+            if (viewMode === 'ppt') {
+                renderCurrentSlide();
+            } else {
+                renderLandingMode();
+            }
+        }
+
+        function getChartOptions(title) {
+            const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.06)';
+            const textColor = isDarkMode ? '#86868b' : '#475569';
+            const titleColor = isDarkMode ? '#f5f5f7' : '#1d1d1f';
+
+            return {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: textColor,
+                            font: { family: 'Inter', size: 10, weight: '500' }
+                        }
+                    },
+                    title: {
+                        display: title ? true : false,
+                        text: title,
+                        color: titleColor,
+                        font: { family: 'Plus Jakarta Sans', size: 12, weight: '700' }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { color: gridColor },
+                        ticks: { color: textColor, font: { family: 'Inter', size: 9 } }
+                    },
+                    y: {
+                        grid: { color: gridColor },
+                        ticks: { color: textColor, font: { family: 'Inter', size: 9 } }
+                    }
+                }
+            }
+        }
+
+        function updateChartThemes() {
+            Object.keys(chartInstances).forEach(id => {
+                const chart = chartInstances[id];
+                if (chart) {
+                    const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.06)';
+                    const textColor = isDarkMode ? '#86868b' : '#475569';
+                    const titleColor = isDarkMode ? '#f5f5f7' : '#1d1d1f';
+
+                    if (chart.options.scales) {
+                        Object.keys(chart.options.scales).forEach(scaleId => {
+                            if (chart.options.scales[scaleId].grid) {
+                                chart.options.scales[scaleId].grid.color = gridColor;
+                            }
+                            if (chart.options.scales[scaleId].ticks) {
+                                chart.options.scales[scaleId].ticks.color = textColor;
+                            }
+                        });
+                    }
+                    if (chart.options.plugins) {
+                        if (chart.options.plugins.legend && chart.options.plugins.legend.labels) {
+                            chart.options.plugins.legend.labels.color = textColor;
+                        }
+                        if (chart.options.plugins.title) {
+                            chart.options.plugins.title.color = titleColor;
+                        }
+                    }
+
+                    // Dynamic colors for datasets
+                    const red = isDarkMode ? '#ff453a' : '#d70015';
+                    const green = isDarkMode ? '#30d158' : '#1d883b';
+                    const orange = isDarkMode ? '#ff9f0a' : '#bf4f00';
+                    const blue = isDarkMode ? '#2997ff' : '#0071e3';
+                    const purple = isDarkMode ? '#bf5af2' : '#8600d9';
+
+                    if (id === 'ch_gdp') {
+                        chart.data.datasets[0].backgroundColor = dataGDP.map(v => v < 0 ? red : v > 3.5 ? green : orange);
+                    } else if (id === 'ch_cpi') {
+                        chart.data.datasets[0].borderColor = red;
+                    } else if (id === 'ch_cpi_m') {
+                        chart.data.datasets[0].backgroundColor = orange;
+                    } else if (id === 'ch_rate') {
+                        chart.data.datasets[0].borderColor = orange;
+                    } else if (id === 'ch_rub') {
+                        chart.data.datasets[0].borderColor = blue;
+                    } else if (id === 'ch_unemp') {
+                        chart.data.datasets[0].borderColor = purple;
+                        chart.data.datasets[0].backgroundColor = isDarkMode ? 'rgba(191, 90, 242, 0.08)' : 'rgba(134, 0, 217, 0.06)';
+                    } else if (id === 'ch_oil_gdp') {
+                        chart.data.datasets[0].backgroundColor = green;
+                        chart.data.datasets[1].borderColor = orange;
+                    } else if (id === 'ch_2014') {
+                        chart.data.datasets[0].borderColor = green;
+                        chart.data.datasets[1].borderColor = red;
+                        chart.data.datasets[2].borderColor = blue;
+                    } else if (id === 'ch_scenario') {
+                        chart.data.datasets[0].borderColor = blue;
+                        chart.data.datasets[1].borderColor = green;
+                        chart.data.datasets[2].borderColor = red;
+                    }
+
+                    chart.update();
+                }
+            });
+        }
+
+        function buildSlidesMenu() {
+            const menuContainer = document.getElementById('ppt-slides-menu');
+            const mobileSelector = document.getElementById('mobile-slide-selector');
+            menuContainer.innerHTML = '';
+            mobileSelector.innerHTML = '';
+
+            slidesData.forEach((slide, idx) => {
+                // Desktop sidebar links
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all ${idx === currentSlideIndex ? 'ppt-menu-btn-active shadow-sm font-display' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-200/40 dark:hover:bg-white/5 font-display'}`;
+                btn.onclick = () => goToSlide(idx);
+                btn.innerHTML = `
+                    <span class="truncate block max-w-[190px] font-display">${idx + 1}. ${slide.title}</span>
+                    <i class="fa-solid fa-chevron-right text-[8px] opacity-60"></i>
+                `;
+                menuContainer.appendChild(btn);
+
+                // Mobile select items
+                const opt = document.createElement('option');
+                opt.value = idx;
+                opt.textContent = `${idx + 1}. ${slide.topic}`;
+                if (idx === currentSlideIndex) opt.selected = true;
+                mobileSelector.appendChild(opt);
+            });
+        }
+
+        function initChartInstance(id, config) {
+            const ctx = document.getElementById(id);
+            if (!ctx) return;
+            if (chartInstances[id]) {
+                chartInstances[id].destroy();
+            }
+            chartInstances[id] = new Chart(ctx, config);
+        }
+
+        function renderCurrentSlide() {
+            const slide = slidesData[currentSlideIndex];
+            if (!slide) return;
+
+            stopAutoplayTimer();
+
+            document.getElementById('slide-topic').textContent = slide.topic;
+            document.getElementById('slide-index-counter').textContent = `${String(currentSlideIndex + 1).padStart(2, '0')} / ${String(slidesData.length).padStart(2, '0')}`;
+
+            const contentBox = document.getElementById('slide-content');
+            contentBox.innerHTML = `
+                <div class="mb-4">
+                    <h2 class="text-2xl font-extrabold font-display tracking-tight text-slate-800 dark:text-slate-100">${slide.title}</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1 font-sans">${slide.subtitle}</p>
+                </div>
+                <div class="flex-1 flex flex-col justify-between">${slide.render()}</div>
+            `;
+
+            setTimeout(() => {
+                slide.initChart();
+                updateChartThemes();
+                if (isAutoplayActive) {
+                    startAutoplayTimer();
+                }
+            }, 120);
+
+            buildSlidesMenu();
+        }
+
+        function goToSlide(n) {
+            if (n >= 0 && n < slidesData.length) {
+                currentSlideIndex = n;
+                renderCurrentSlide();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < slidesData.length - 1) {
+                goToSlide(currentSlideIndex + 1);
+            } else {
+                goToSlide(0);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                goToSlide(currentSlideIndex - 1);
+            } else {
+                goToSlide(slidesData.length - 1);
+            }
+        }
+
+        // View Modes Setup
+        function setViewMode(mode) {
+            viewMode = mode;
+            const pptBtn = document.getElementById('btn-mode-ppt');
+            const scrollBtn = document.getElementById('btn-mode-scroll');
+            const pptLayout = document.getElementById('ppt-view');
+            const scrollLayout = document.getElementById('scroll-view');
+
+            if (mode === 'ppt') {
+                pptLayout.classList.remove('hidden');
+                scrollLayout.classList.add('hidden');
+
+                pptBtn.className = "px-4 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all text-brand-blue bg-white dark:bg-slate-700 shadow-sm";
+                scrollBtn.className = "px-4 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200";
+
+                renderCurrentSlide();
+            } else {
+                pptLayout.classList.add('hidden');
+                scrollLayout.classList.remove('hidden');
+
+                scrollBtn.className = "px-4 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all text-brand-blue bg-white dark:bg-slate-700 shadow-sm";
+                pptBtn.className = "px-4 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200";
+
+                renderLandingMode();
+            }
+        }
+
+        function renderLandingMode() {
+            const landingContainer = document.getElementById('scroll-view');
+            landingContainer.innerHTML = '';
+
+            slidesData.forEach((slide, idx) => {
+                const section = document.createElement('section');
+                section.className = "liquid-card rounded-3xl p-6 lg:p-8 flex flex-col gap-5 relative overflow-hidden shadow-2xl";
+                section.innerHTML = `
+                    <div class="flex items-center justify-between border-b border-white/[0.08] dark:border-white/[0.04] pb-3 mb-2">
+                        <span class="text-[10px] font-bold tracking-widest text-brand-blue uppercase">${slide.topic}</span>
+                        <span class="text-xs text-slate-500 font-semibold font-display">Слайд ${idx + 1}</span>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-extrabold font-display tracking-tight text-slate-800 dark:text-slate-100">${slide.title}</h2>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">${slide.subtitle}</p>
+                    </div>
+                    <div class="flex-1 flex flex-col justify-between">${slide.render()}</div>
+                `;
+                landingContainer.appendChild(section);
+
+                setTimeout(() => {
+                    slide.initChart();
+                    updateChartThemes();
+                }, 150);
+            });
+        }
+
+        // Autoplay Logic
+        let autoplayProgressTimer = null;
+        function toggleAutoplay() {
+            isAutoplayActive = !isAutoplayActive;
+            const btn = document.getElementById('autoplay-btn');
+            if (isAutoplayActive) {
+                btn.innerHTML = `<i class="fa-solid fa-pause text-brand-red"></i> Стоп`;
+                btn.classList.add('text-brand-red');
+                startAutoplayTimer();
+            } else {
+                btn.innerHTML = `<i class="fa-solid fa-play"></i> Автослайд`;
+                btn.classList.remove('text-brand-red');
+                stopAutoplayTimer();
+            }
+        }
+
+        function startAutoplayTimer() {
+            stopAutoplayTimer();
+            autoplayStartTime = Date.now();
+            const progressBar = document.getElementById('autoplay-progress');
+
+            autoplayProgressTimer = setInterval(() => {
+                const elapsed = Date.now() - autoplayStartTime;
+                const pct = Math.min((elapsed / AUTOPLAY_INTERVAL) * 100, 100);
+                progressBar.style.width = `${pct}%`;
+
+                if (elapsed >= AUTOPLAY_INTERVAL) {
+                    nextSlide();
+                }
+            }, 100);
+        }
+
+        function stopAutoplayTimer() {
+            clearInterval(autoplayProgressTimer);
+            const progressBar = document.getElementById('autoplay-progress');
+            if (progressBar) {
+                progressBar.style.width = '0%';
+            }
+        }
+
+        // Full Screen mode helper
+        function toggleFullScreen() {
+            const elem = document.getElementById('slide-wrapper');
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    console.log(`FullScreen error: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Interactive chassis highlight triggers
+        function highlightCarPart(partName) {
+            const svg = document.getElementById('sedan-chassis-svg');
+            if (svg) {
+                svg.className = `relative w-full flex justify-center items-center h-32 px-4 highlight-${partName}`;
+            }
+        }
+
+        function clearHighlight() {
+            const svg = document.getElementById('sedan-chassis-svg');
+            if (svg) {
+                svg.className = 'relative w-full flex justify-center items-center h-32 px-4';
+            }
+        }
+
+        // Modals management
+        const modal = document.getElementById('modal');
+        const modalBody = document.getElementById('modal-body-container');
+
+        function openDetailsModal(chartId) {
+            const chart = chartInstances[chartId];
+            if (!chart) return;
+
+            const title = chart.options.plugins?.title?.text || 'Детализированный датасет IMF';
+            const labels = chart.data.labels;
+            const datasets = chart.data.datasets;
+
+            let html = `
+                <div class="space-y-4 text-slate-800 dark:text-slate-200">
+                    <div>
+                        <span class="text-xs font-bold text-brand-blue uppercase tracking-widest block">База данных IMF SDMX</span>
+                        <h4 class="text-xl font-extrabold font-display">${title}</h4>
+                    </div>
+                    <div class="overflow-x-auto rounded-2xl border border-slate-300 dark:border-white/[0.08] max-h-[50vh]">
+                        <table class="w-full text-left border-collapse text-xs font-mono">
+                            <thead>
+                                <tr class="bg-slate-200/50 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 font-bold border-b border-slate-300 dark:border-white/[0.08]">
+                                    <th class="py-2.5 px-3">Период / Год</th>
+                                    ${datasets.map(ds => `<th class="py-2.5 px-3">${ds.label}</th>`).join('')}
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-300 dark:divide-white/[0.04]">
+            `;
+
+            for (let i = 0; i < labels.length; i++) {
+                html += `
+                    <tr class="hover:bg-slate-200/30 dark:hover:bg-white/[0.02]">
+                        <td class="py-2.5 px-3 font-bold">${labels[i]}</td>
+                        ${datasets.map(ds => {
+                    const val = ds.data[i];
+                    return `<td class="py-2.5 px-3 font-semibold">${val !== null && val !== undefined ? val.toFixed(2) : '—'}</td>`;
+                }).join('')}
+                    </tr>
+                `;
+            }
+
+            html += `
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            modalBody.innerHTML = html;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function openInteractiveData() {
+            let matrixHtml = `
+                <div class="mb-6 text-slate-800 dark:text-slate-200">
+                    <h3 class="text-xl font-extrabold tracking-tight font-display">Сводная матрица макроэкономических данных России</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Официальные показатели и консенсус-прогнозы с 1990 по 2030 годы.</p>
+                </div>
+                <div class="overflow-x-auto rounded-2xl border border-slate-300 dark:border-white/[0.08] max-h-[55vh]">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead class="bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 sticky top-0 backdrop-blur z-10">
+                            <tr>
+                                <th class="p-3 border-b border-slate-300 dark:border-white/[0.08]">Год</th>
+                                <th class="p-3 border-b border-slate-300 dark:border-white/[0.08]">ВВП (%)</th>
+                                <th class="p-3 border-b border-slate-300 dark:border-white/[0.08]">Инфляция (%)</th>
+                                <th class="p-3 border-b border-slate-300 dark:border-white/[0.08]">Ставка (%)</th>
+                                <th class="p-3 border-b border-slate-300 dark:border-white/[0.08]">Курс USD</th>
+                                <th class="p-3 border-b border-slate-300 dark:border-white/[0.08]">Brent ($)</th>
+                                <th class="p-3 border-b border-slate-300 dark:border-white/[0.08]">Безработица (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-300 dark:divide-white/[0.04] text-slate-700 dark:text-slate-300 font-mono">
+            `;
+
+            labelsYears.forEach((yr, i) => {
+                const vvpVal = dataGDP[i] !== null ? dataGDP[i].toFixed(1) + '%' : '—';
+                const cpiVal = dataCPI[i] !== null ? dataCPI[i].toFixed(1) + '%' : '—';
+                const rateVal = dataRate[i] !== null ? dataRate[i].toFixed(1) + '%' : '—';
+                const rubVal = dataRUB[i] !== null ? dataRUB[i].toFixed(2) : '—';
+                const brentVal = dataOil[i] !== null ? dataOil[i].toFixed(1) : '—';
+                const unempVal = dataUnemp[i] !== null ? dataUnemp[i].toFixed(2) + '%' : '—';
+
+                let rowClass = "";
+                if (dataGDP[i] < -3) rowClass = "bg-brand-red/5";
+                else if (dataGDP[i] > 5) rowClass = "bg-brand-green/5";
+
+                matrixHtml += `
+                    <tr class="${rowClass} hover:bg-slate-200/40 dark:hover:bg-white/[0.02]">
+                        <td class="p-2.5 font-bold">${yr}</td>
+                        <td class="p-2.5 ${dataGDP[i] < 0 ? 'text-brand-red font-bold' : 'text-brand-green font-bold'}">${vvpVal}</td>
+                        <td class="p-2.5">${cpiVal}</td>
+                        <td class="p-2.5">${rateVal}</td>
+                        <td class="p-2.5">${rubVal}</td>
+                        <td class="p-2.5 text-brand-orange font-bold">${brentVal}</td>
+                        <td class="p-2.5">${unempVal}</td>
+                    </tr>
+                `;
+            });
+
+            matrixHtml += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            modalBody.innerHTML = matrixHtml;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function openKPIModal(metricName) {
+            let content = "";
+
+            if (metricName === 'ВВП') {
+                content = `
+                    <div class="mb-4 text-slate-800 dark:text-slate-200">
+                        <h3 class="text-xl font-bold font-display text-brand-blue">Валовой внутренний продукт (ВВП)</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Обобщающий индикатор масштаба производства и услуг.</p>
+                    </div>
+                    <div class="text-xs leading-relaxed space-y-3 text-slate-600 dark:text-slate-300">
+                        <p>Ключевые фазы в истории роста ВВП:</p>
+                        <ul class="list-disc pl-5 space-y-1.5">
+                            <li><strong>Трансформационный спад 1990-1994:</strong> падение составило более 40% из-за разрыва хозяйственных связей.</li>
+                            <li><strong>Золотой век сырья 2000-2008:</strong> среднегодовые темпы на уровне 7% на фоне разгона нефтяного экспорта.</li>
+                            <li><strong>Амортизационное замедление 2014-2020:</strong> адаптация к жесткому введению санкций и падению Brent.</li>
+                            <li><strong>Структурный перегрев 2023-2025:</strong> рекордно быстрая загрузка оборонно-промышленных цепочек, приведшая к предельным темпам разгона.</li>
+                        </ul>
+                    </div>
+                `;
+            } else if (metricName === 'Ставка') {
+                content = `
+                    <div class="mb-4 text-slate-800 dark:text-slate-200">
+                        <h3 class="text-xl font-bold font-display text-brand-orange">Инструменты ДКП (Ключевая ставка)</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Механизм управления ценовой стабильностью через процентный канал.</p>
+                    </div>
+                    <div class="text-xs leading-relaxed space-y-3 text-slate-600 dark:text-slate-300">
+                        <p>Исторические уровни ставки рефинансирования / ключевой ставки:</p>
+                        <ul class="list-disc pl-5 space-y-1.5">
+                            <li><strong>1993-1994:</strong> Экстремальные 210% в попытках остановить разрушительный взлет цен.</li>
+                            <li><strong>Конец 2014:</strong> Экстренный взлет с 10.5% до 17% для тушения панической скупки валюты.</li>
+                            <li><strong>Февраль 2022:</strong> Мгновенный подъем до 20% с целью защиты сбережений граждан в банках.</li>
+                            <li><strong>2024-2026:</strong> Удержание ставки на рекордно жестком уровне 21.0% из-за острого перегрева потребительского сектора.</li>
+                        </ul>
+                    </div>
+                `;
+            } else if (metricName === 'Безработица') {
+                content = `
+                    <div class="mb-4 text-slate-800 dark:text-slate-200">
+                        <h3 class="text-xl font-bold font-display text-brand-purple">Рынок труда и Демографические лимиты</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Физические ограничения совокупного предложения.</p>
+                    </div>
+                    <div class="text-xs leading-relaxed space-y-3 text-slate-600 dark:text-slate-300">
+                        <p>Уровень безработицы упал до исторического минимума (2.23% в 2025 году):</p>
+                        <ul class="list-disc pl-5 space-y-1.5">
+                            <li>Это вызывает острый кадровый голод на всех промышленных и технологических конвейерах.</li>
+                            <li>Жесткая конкуренция вынуждает корпорации индексировать заработные платы темпами, значительно опережающими производительность труда.</li>
+                            <li>Удержание жесткой ДКП со стороны ЦБ выступает единственным способом охладить избыточный спрос, не обеспеченный физическим объемом товаров.</li>
+                        </ul>
+                    </div>
+                `;
+            } else if (metricName === 'Инфляция') {
+                content = `
+                    <div class="mb-4 text-slate-800 dark:text-slate-200">
+                        <h3 class="text-xl font-bold font-display text-brand-red">Индекс потребительских цен (ИПЦ / Инфляция)</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Динамика цен и инфляционные ожидания участников.</p>
+                    </div>
+                    <div class="text-xs leading-relaxed space-y-3 text-slate-600 dark:text-slate-300">
+                        <p>Процессы ценовой дестабилизации:</p>
+                        <ul class="list-disc pl-5 space-y-1.5">
+                            <li>Гиперинфляция 1992 года (2508%) полностью обесценила накопления плановой эпохи.</li>
+                            <li>Стабилизация была достигнута к 2017 году на отметке 4% благодаря запуску инфляционного таргетирования и отмене дорогих интервенций рубля.</li>
+                            <li>Текущие вызовы (8.40% в 2024 году) требуют последовательной и затяжной жесткой монетарной политики для предотвращения раскручивания спирали.</li>
+                        </ul>
+                    </div>
+                `;
+            }
+
+            modalBody.innerHTML = content;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Keyboard arrows & Swipe nav
+        document.addEventListener('keydown', e => {
+            if (viewMode !== 'ppt') return;
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        let touchstartX = 0;
+        let touchendX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            if (viewMode !== 'ppt') return;
+            if (touchendX < touchstartX - 60) nextSlide();
+            if (touchendX > touchstartX + 60) prevSlide();
+        });
+
+        // App Initialization
+        window.onload = function () {
+            // Apply storage theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+                isDarkMode = false;
+            } else {
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                isDarkMode = true;
+            }
+
+            renderCurrentSlide();
+            console.log('✅ Премиальная макроэкономическая презентация успешно развернута.');
+        };
+    </script>
+</body>
+
+</html>
