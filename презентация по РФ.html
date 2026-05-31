@@ -509,10 +509,12 @@
     <main id="ppt-view"
         class="relative z-10 flex-1 w-full max-w-[1700px] mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6">
 
-        <!-- Left Sidebar: PPT Navigation List -->
+        <!-- Left Sidebar: PPT Navigation List (Fixed Height, No Scroll on Outer Container) -->
         <aside
-            class="liquid-card rounded-2xl p-4 flex flex-col justify-between max-h-[calc(100vh-140px)] overflow-y-auto hidden lg:flex">
-            <div>
+            class="liquid-card rounded-2xl p-4 flex flex-col justify-between max-h-[calc(100vh-140px)] overflow-hidden hidden lg:flex flex-shrink-0">
+            
+            <!-- Scrollable Slide List Area -->
+            <div class="overflow-y-auto flex-1 pr-1 mr-[-4px] mb-2">
                 <h2 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3 px-1">
                     Слайды презентации</h2>
                 <nav class="flex flex-col gap-1" id="ppt-slides-menu">
@@ -520,28 +522,31 @@
                 </nav>
             </div>
 
-            <!-- Sidebar Quick Tips -->
-            <div
-                class="mt-4 pt-4 border-t border-white/[0.08] dark:border-white/[0.04] text-[11px] text-slate-500 dark:text-slate-400">
-                <p class="flex items-center gap-1.5"><i class="fa-regular fa-keyboard text-brand-blue"></i> Стрелки ← →
-                    для навигации</p>
-            </div>
-
-            <!-- QR Code Section for Mobile View -->
-            <div class="mt-4 pt-4 border-t border-slate-200 dark:border-white/[0.04] flex flex-col items-center text-center">
-                <div class="bg-white p-1.5 rounded-xl border border-slate-200 dark:border-white/10 shadow-sm mb-2 flex items-center justify-center">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://nnurlan1991.github.io/russianeconomyanalysis/" 
+            <!-- Fixed Sidebar Footer (No Scroll, Always Visible) -->
+            <div class="mt-2 pt-3 border-t border-slate-200 dark:border-white/[0.04] flex-shrink-0 flex flex-col items-center text-center">
+                <!-- Larger QR Code Container (128x128px, 150x150 clear rendering) -->
+                <div class="bg-white p-2 rounded-2xl border border-slate-200 dark:border-white/10 shadow-md mb-2.5 flex items-center justify-center transition-transform hover:scale-105 duration-300">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nnurlan1991.github.io/russianeconomyanalysis/" 
                          alt="QR Code" 
-                         class="w-20 h-20 object-contain">
+                         class="w-32 h-32 object-contain">
                 </div>
-                <span class="text-[10px] text-slate-500 dark:text-slate-400 font-semibold leading-relaxed px-1">
-                    Мобильная версия
-                </span>
-                <span class="text-[9px] text-slate-400 dark:text-slate-500 leading-normal mt-0.5 px-2">
-                    Сканируйте для просмотра презентации на мобильных устройствах
-                </span>
+                <div class="leading-snug mb-2">
+                    <span class="text-[11px] text-slate-700 dark:text-slate-300 font-bold block">
+                        Мобильная версия
+                    </span>
+                    <span class="text-[9px] text-slate-400 dark:text-slate-500 block mt-0.5 px-2">
+                        Сканируйте для просмотра презентации на мобильных устройствах
+                    </span>
+                </div>
+                
+                <!-- Compact Quick Navigation Tips -->
+                <div class="pt-2.5 border-t border-slate-200/60 dark:border-white/[0.03] text-[9px] text-slate-400 dark:text-slate-500 flex items-center gap-1.5 w-full justify-center">
+                    <i class="fa-regular fa-keyboard text-brand-blue"></i>
+                    <span>Управление: ← → на клавиатуре</span>
+                </div>
             </div>
         </aside>
+
 
 
         <!-- Center Slide Viewport -->
