@@ -227,15 +227,14 @@
             <div class="flex items-center gap-1.5 flex-shrink-0">
                 <div
                     class="h-9 w-9 rounded-xl bg-white p-1 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center">
-                    <img src="../Vector.svg" class="h-7 w-7 object-contain" alt="Школа аналитики Талдау" onerror="this.src='https://raw.githubusercontent.com/taldauschool/logo/main/Vector.svg'; this.onerror=null;">
+                    <img src="./Vector.svg" class="h-7 w-7 object-contain" alt="Школа аналитики Талдау" onerror="this.src='https://raw.githubusercontent.com/taldauschool/logo/main/Vector.svg'; this.onerror=null;">
                 </div>
                 <div
                     class="h-9 w-9 rounded-xl bg-white p-1 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center">
-                    <img src="../логотипы/National_Bank_of_Kazakhstan_logo.svg" class="h-7 w-7 object-contain"
+                    <img src="./логотипы/National_Bank_of_Kazakhstan_logo.svg" class="h-7 w-7 object-contain"
                         alt="Национальный Банк РК" onerror="this.src='https://raw.githubusercontent.com/taldauschool/logo/main/National_Bank_of_Kazakhstan_logo.svg'; this.onerror=null;">
                 </div>
             </div>
-
 
             <div class="leading-none">
                 <span
@@ -517,13 +516,12 @@
 
                         <div class="col-span-12 md:col-span-4 flex flex-col justify-center items-center">
                             <div class="relative w-full h-[150px] overflow-hidden rounded-2xl border border-slate-300 dark:border-white/[0.08] bg-slate-950/20 shadow-2xl flex items-center justify-center">
-                                <img src="../nano_banana_pro_car.png" 
+                                <img src="./nano_banana_pro_car.png" 
                                      class="w-full h-full object-cover" 
                                      alt="Приборная панель автомобиля"
                                      onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80'; this.onerror=null;">
                             </div>
                         </div>
-
 
                         <div class="col-span-12 md:col-span-4 flex flex-col justify-between space-y-2">
                             <div class="p-2.5 rounded-xl liquid-inner-card border-l-4 border-brand-red cursor-pointer">
@@ -946,14 +944,14 @@
                 initChart: () => {
                     initChartInstance('ch_oil_gdp', {
                         data: {
-                            labels: labelsYears.slice(10, 30),
+                            labels: labelsYears.slice(10, 20),
                             datasets: [
-                                { type: 'bar', label: 'ВВП (% г/г)', data: dataGDP.slice(10, 30), backgroundColor: '#30d158', yAxisID: 'y', borderRadius: 2 },
-                                { type: 'line', label: 'Brent ($/bbl)', data: dataOil.slice(10, 30), borderColor: '#ff9f0a', borderWidth: 2, yAxisID: 'y1', tension: 0.15, fill: false }
+                                { type: 'bar', label: 'ВВП (% г/г)', data: dataGDP.slice(10, 20), backgroundColor: '#30d158', yAxisID: 'y', borderRadius: 2 },
+                                { type: 'line', label: 'Brent ($/bbl)', data: dataOil.slice(10, 20), borderColor: '#ff9f0a', borderWidth: 2, yAxisID: 'y1', tension: 0.15, fill: false }
                             ]
                         },
                         options: {
-                            ...getChartOptions('Связь роста ВВП с котировками Brent (2000-2009)'),
+                            ...getChartOptions('Связь роста ВВП с котировками Brent (2000–2009)'),
                             scales: {
                                 y: { position: 'left', title: { display: true, text: 'ВВП (%)' } },
                                 y1: { position: 'right', title: { display: true, text: 'Brent ($/барр)' }, grid: { drawOnChartArea: false } }
@@ -965,98 +963,310 @@
             {
                 id: 9,
                 topic: "Санкционный маневр 2014",
-                title: "Шок 2014: Закалка и правила безопасности",
-                subtitle: "Реакция системы на первые санкции и падение сырьевых доходов",
+                title: "Двойной шок 2014 года и переход к инфляционному таргетированию",
+                subtitle: "Форсированный переход к плавающему курсу и новой модели денежно-кредитной политики",
                 render: () => `
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch flex-1">
-                        <div class="md:col-span-4 flex flex-col justify-between">
-                            <div>
-                                <span class="text-[9px] font-bold text-brand-orange uppercase tracking-wider block mb-0.5">Новые правила</span>
-                                <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                                    Падение нефти и санкции заставили пересобрать амортизацию. Бюджетное правило и переход к плавающему курсу спасли золотовалютные резервы.
-                                </p>
+                    <div class="grid grid-cols-1 gap-4 items-stretch flex-grow relative text-slate-800 dark:text-slate-200">
+                        <div class="relative w-full h-[320px] rounded-3xl border border-white/[0.08] dark:border-white/[0.04] bg-slate-900/10 dark:bg-black/10 overflow-hidden">
+                            <!-- SVG Custom Interactive Chart -->
+                            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <marker id="arrow-down" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#86868b" />
+                                    </marker>
+                                </defs>
+
+                                <!-- Grid Lines -->
+                                <line x1="80" y1="340" x2="940" y2="340" stroke="rgba(255,255,255,0.06)" class="stroke-slate-300/40 dark:stroke-white/[0.06]" stroke-width="1" />
+                                <line x1="80" y1="270" x2="940" y2="270" stroke="rgba(255,255,255,0.06)" class="stroke-slate-300/40 dark:stroke-white/[0.06]" stroke-dasharray="2 2" stroke-width="1" />
+                                <line x1="80" y1="200" x2="940" y2="200" stroke="rgba(255,255,255,0.06)" class="stroke-slate-300/40 dark:stroke-white/[0.06]" stroke-dasharray="2 2" stroke-width="1" />
+                                <line x1="80" y1="130" x2="940" y2="130" stroke="rgba(255,255,255,0.06)" class="stroke-slate-300/40 dark:stroke-white/[0.06]" stroke-dasharray="2 2" stroke-width="1" />
+                                <line x1="80" y1="60" x2="940" y2="60" stroke="rgba(255,255,255,0.06)" class="stroke-slate-300/40 dark:stroke-white/[0.06]" stroke-width="1" />
+
+                                <!-- Ticks Y -->
+                                <text x="50" y="344" fill="#86868b" font-family="Inter" font-size="11" font-weight="600">0%</text>
+                                <text x="50" y="274" fill="#86868b" font-family="Inter" font-size="11" font-weight="600">5%</text>
+                                <text x="42" y="204" fill="#86868b" font-family="Inter" font-size="11" font-weight="600">10%</text>
+                                <text x="42" y="134" fill="#86868b" font-family="Inter" font-size="11" font-weight="600">15%</text>
+                                <text x="42" y="64" fill="#86868b" font-family="Inter" font-size="11" font-weight="600">20%</text>
+
+                                <!-- Ticks X -->
+                                <line x1="100" y1="60" x2="100" y2="340" stroke="rgba(255,255,255,0.06)" class="stroke-slate-300/20 dark:stroke-white/[0.04]" stroke-dasharray="3 3" />
+                                <line x1="240" y1="60" x2="240" y2="340" stroke="rgba(255,255,255,0.06)" class="stroke-slate-300/20 dark:stroke-white/[0.04]" stroke-dasharray="3 3" />
+                                <line x1="380" y1="60" x2="380" y2="340" stroke="rgba(255,255,255,0.06)" class="stroke-slate-300/20 dark:stroke-white/[0.04]" stroke-dasharray="3 3" />
+                                <line x1="520" y1="60" x2="520" y2="340" stroke="rgba(255,255,255,0.06)" class="stroke-slate-300/20 dark:stroke-white/[0.04]" stroke-dasharray="3 3" />
+                                <line x1="660" y1="60" x2="660" y2="340" stroke="rgba(255,255,255,0.06)" class="stroke-slate-300/20 dark:stroke-white/[0.04]" stroke-dasharray="3 3" />
+                                <line x1="800" y1="60" x2="800" y2="340" stroke="rgba(255,255,255,0.06)" class="stroke-slate-300/20 dark:stroke-white/[0.04]" stroke-dasharray="3 3" />
+                                <line x1="940" y1="60" x2="940" y2="340" stroke="rgba(255,255,255,0.06)" class="stroke-slate-300/20 dark:stroke-white/[0.04]" stroke-dasharray="3 3" />
+
+                                <!-- Year labels -->
+                                <text x="100" y="360" text-anchor="middle" fill="#86868b" font-family="Plus Jakarta Sans" font-size="12" font-weight="700">2013</text>
+                                <text x="240" y="360" text-anchor="middle" fill="#86868b" font-family="Plus Jakarta Sans" font-size="12" font-weight="700">2014</text>
+                                <text x="380" y="360" text-anchor="middle" fill="#86868b" font-family="Plus Jakarta Sans" font-size="12" font-weight="700">2015</text>
+                                <text x="520" y="360" text-anchor="middle" fill="#86868b" font-family="Plus Jakarta Sans" font-size="12" font-weight="700">2016</text>
+                                <text x="660" y="360" text-anchor="middle" fill="#86868b" font-family="Plus Jakarta Sans" font-size="12" font-weight="700">2017</text>
+                                <text x="800" y="360" text-anchor="middle" fill="#86868b" font-family="Plus Jakarta Sans" font-size="12" font-weight="700">2018</text>
+                                <text x="940" y="360" text-anchor="middle" fill="#86868b" font-family="Plus Jakarta Sans" font-size="12" font-weight="700">2019</text>
+
+                                <!-- Dashed regime transition line -->
+                                <line x1="310" y1="60" x2="310" y2="340" stroke="#2997ff" stroke-width="2" stroke-dasharray="4 4" opacity="0.8" />
+
+                                <!-- Trend rate arrow -->
+                                <path d="M 410 175 L 910 240" stroke="#86868b" stroke-width="3" stroke-dasharray="3 3" marker-end="url(#arrow-down)" opacity="0.5" />
+
+                                <!-- Lines -->
+                                <!-- CPI Line (Red) -->
+                                <path d="M 100 249 L 240 180.2 L 380 123 L 520 264.4 L 660 305 L 800 279.8 L 940 298" fill="none" stroke="#ff453a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                                <!-- Rate Line (Blue) -->
+                                <path d="M 100 263 L 240 102 L 380 186 L 520 200 L 660 231.5 L 800 231.5 L 940 252.5" fill="none" stroke="#2997ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+                                <!-- Circles & Value labels -->
+                                <circle cx="100" cy="249" r="6" fill="#ff453a" stroke="white" stroke-width="2" />
+                                <circle cx="100" cy="263" r="6" fill="#2997ff" stroke="white" stroke-width="2" />
+                                <text x="100" y="237" text-anchor="middle" fill="#ff453a" font-family="Inter" font-size="11" font-weight="800">6,5%</text>
+                                <text x="100" y="282" text-anchor="middle" fill="#2997ff" font-family="Inter" font-size="11" font-weight="800">5,5%</text>
+
+                                <circle cx="240" cy="180.2" r="6" fill="#ff453a" stroke="white" stroke-width="2" />
+                                <circle cx="240" cy="102" r="6" fill="#2997ff" stroke="white" stroke-width="2" />
+                                <text x="240" y="168" text-anchor="middle" fill="#ff453a" font-family="Inter" font-size="11" font-weight="800">11,4%</text>
+                                <text x="240" y="90" text-anchor="middle" fill="#2997ff" font-family="Inter" font-size="11" font-weight="800">17,0%</text>
+
+                                <circle cx="380" cy="123" r="6" fill="#ff453a" stroke="white" stroke-width="2" />
+                                <circle cx="380" cy="186" r="6" fill="#2997ff" stroke="white" stroke-width="2" />
+                                <text x="380" y="111" text-anchor="middle" fill="#ff453a" font-family="Inter" font-size="11" font-weight="800">15,5%</text>
+                                <text x="380" y="174" text-anchor="middle" fill="#2997ff" font-family="Inter" font-size="11" font-weight="800">11,0%</text>
+
+                                <circle cx="520" cy="264.4" r="6" fill="#ff453a" stroke="white" stroke-width="2" />
+                                <circle cx="520" cy="200" r="6" fill="#2997ff" stroke="white" stroke-width="2" />
+                                <text x="520" y="280" text-anchor="middle" fill="#ff453a" font-family="Inter" font-size="11" font-weight="800">5,4%</text>
+                                <text x="520" y="188" text-anchor="middle" fill="#2997ff" font-family="Inter" font-size="11" font-weight="800">10,0%</text>
+
+                                <circle cx="660" cy="305" r="6" fill="#ff453a" stroke="white" stroke-width="2" />
+                                <circle cx="660" cy="231.5" r="6" fill="#2997ff" stroke="white" stroke-width="2" />
+                                <text x="660" y="321" text-anchor="middle" fill="#ff453a" font-family="Inter" font-size="11" font-weight="800">2,5%</text>
+                                <text x="660" y="219" text-anchor="middle" fill="#2997ff" font-family="Inter" font-size="11" font-weight="800">7,75%</text>
+
+                                <circle cx="800" cy="279.8" r="6" fill="#ff453a" stroke="white" stroke-width="2" />
+                                <circle cx="800" cy="231.5" r="6" fill="#2997ff" stroke="white" stroke-width="2" />
+                                <text x="800" y="267" text-anchor="middle" fill="#ff453a" font-family="Inter" font-size="11" font-weight="800">4,3%</text>
+                                <text x="800" y="219" text-anchor="middle" fill="#2997ff" font-family="Inter" font-size="11" font-weight="800">7,75%</text>
+
+                                <circle cx="940" cy="298" r="6" fill="#ff453a" stroke="white" stroke-width="2" />
+                                <circle cx="940" cy="252.5" r="6" fill="#2997ff" stroke="white" stroke-width="2" />
+                                <text x="940" y="314" text-anchor="middle" fill="#ff453a" font-family="Inter" font-size="11" font-weight="800">3,0%</text>
+                                <text x="940" y="240" text-anchor="middle" fill="#2997ff" font-family="Inter" font-size="11" font-weight="800">6,25%</text>
+                            </svg>
+
+                            <!-- Vertical regime description -->
+                            <div class="absolute left-[32%] bottom-[12%] text-[8px] sm:text-[9px] font-extrabold text-brand-blue tracking-tight leading-tight w-24">
+                                Переход к плавающему курсу и инфляционному таргетированию
                             </div>
 
-                            <div class="p-3 rounded-xl bg-brand-orange/5 border border-brand-orange/10 text-[10px] text-slate-600 dark:text-slate-300">
-                                <h5 class="font-bold text-brand-orange flex items-center gap-1 mb-0.5 uppercase text-[9px]"><i class="fa-solid fa-rotate"></i> Фильтр шока:</h5>
-                                Бюджет отвязали от волатильности цен нефти за счет покупок валюты в ФНБ.
+                            <!-- Floating Legend -->
+                            <div class="absolute top-3 right-4 flex flex-col gap-1.5 p-2 rounded-xl bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 text-[9px] font-bold z-10">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-3 h-1 bg-[#ff453a] rounded"></span>
+                                    <span>Инфляция (CPI, % г/г)</span>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-3 h-1 bg-[#2997ff] rounded"></span>
+                                    <span>Ключевая ставка ЦБ РФ (% годовых)</span>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="md:col-span-8 p-3 rounded-2xl bg-slate-900/10 dark:bg-black/10 border border-white/[0.08] dark:border-white/[0.04] cursor-pointer" onclick="openDetailsModal('ch_2014')">
-                            <div class="h-full min-h-[220px]">
-                                <canvas id="ch_2014"></canvas>
+                            <!-- Floating Card Annotations matching first mockup -->
+                            <!-- 2013 -->
+                            <div class="absolute left-[2%] top-[10%] bg-white/95 dark:bg-slate-900/95 p-2 rounded-xl border border-slate-200 dark:border-white/10 shadow-lg w-[140px] text-[8.5px] leading-tight hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
+                                <strong class="text-brand-blue font-extrabold block mb-1 text-[9px]">Введение ключевой ставки (2013)</strong>
+                                В сентябре 2013 года Bank России официально ввел понятие «ключевая ставка» (5.5%).
+                            </div>
+
+                            <!-- 2014 -->
+                            <div class="absolute left-[22%] top-[3%] bg-white/95 dark:bg-slate-900/95 p-2 rounded-xl border border-slate-200 dark:border-white/10 shadow-lg w-[160px] text-[8.5px] leading-tight hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
+                                <strong class="text-brand-blue font-extrabold block mb-1 text-[9px]">Шоковое повышение до 17% (2014)</strong>
+                                В конце 2014 года ставка была резко поднята для борьбы с девальвацией и всплеском инфляции.
+                            </div>
+
+                            <!-- 2015 -->
+                            <div class="absolute left-[40%] top-[4%] bg-white/95 dark:bg-slate-900/95 p-2 rounded-xl border border-slate-200 dark:border-white/10 shadow-lg w-[150px] text-[8.5px] leading-tight hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
+                                <strong class="text-brand-red font-extrabold block mb-1 text-[9px]">Переход к таргету в 4% (2015)</strong>
+                                С 2015 года ЦБ перешел к стратегии поддержания инфляции вблизи постоянной цели 4%.
+                            </div>
+
+                            <!-- 2017 -->
+                            <div class="absolute left-[58%] bottom-[5%] bg-white/95 dark:bg-slate-900/95 p-2 rounded-xl border border-slate-200 dark:border-white/10 shadow-lg w-[130px] text-[8.5px] leading-tight hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
+                                <strong class="text-brand-red font-extrabold block mb-1 text-[9px]">Достижение цели в 2017 году</strong>
+                                К середине 2017 года инфляция впервые снизилась до целевого уровня 4% и ниже.
+                            </div>
+
+                            <!-- 2019 -->
+                            <div class="absolute left-[78%] top-[15%] bg-white/95 dark:bg-slate-900/95 p-2 rounded-xl border border-slate-200 dark:border-white/10 shadow-lg w-[130px] text-[8.5px] leading-tight hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
+                                <strong class="text-slate-500 dark:text-slate-400 font-extrabold block mb-1 text-[9px]">Снижение ставки вслед за ценами</strong>
+                                Ставка плавно снижалась с 11% в 2015 году до 6.25% к концу 2019 года.
                             </div>
                         </div>
                     </div>
                 `,
-                initChart: () => {
-                    initChartInstance('ch_2014', {
-                        type: 'line',
-                        data: {
-                            labels: labelsYears.slice(20, 30),
-                            datasets: [
-                                { label: 'ВВП (%)', data: dataGDP.slice(20, 30), borderColor: '#30d158', fill: false, tension: 0.15 },
-                                { label: 'Инфляция (%)', data: dataCPI.slice(20, 30), borderColor: '#ff453a', fill: false, tension: 0.15 },
-                                { label: 'Курс RUB/USD', data: dataRUB.slice(20, 30), borderColor: '#2997ff', borderDash: [3, 3], fill: false, tension: 0.15 }
-                            ]
-                        },
-                        options: getChartOptions('Показатели амортизации внешнего шока 2014 года')
-                    });
-                }
+                initChart: () => { }
             },
             {
                 id: 10,
                 topic: "Прогнозы 2020–2030",
-                title: "Эра СВО и Взгляд до 2030 года: Сценарии развития",
-                subtitle: "Функционирование на пределе кадровых возможностей и структурная перестройка",
+                title: "В 2020-е годы экономика сталкивается с физическим пределом мощностей",
+                subtitle: "Беспрецедентный дефицит кадров и перегрев экономики стимулируют высокую инфляцию",
                 render: () => `
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch flex-1">
-                        <div class="md:col-span-5 flex flex-col justify-between">
-                            <div>
-                                <span class="text-[9px] font-bold text-brand-blue uppercase tracking-wider block mb-0.5">Будущее (2025–2030)</span>
-                                <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed mb-2">
-                                    Адаптация в условиях жесткой изоляции от Запада и предельной загрузки оборонных конвейеров:
-                                </p>
-                            </div>
-
-                            <div class="space-y-1.5">
-                                <div class="p-2 rounded-xl border-l-4 border-brand-blue bg-brand-blue/5 text-[9px] leading-snug text-slate-700 dark:text-slate-300">
-                                    <strong class="text-brand-blue font-bold block">Базовый IMF (0.7 - 1.5%)</strong>
-                                    Затяжной кадровый голод, высокая ставка ограничивает разбег ВВП.
-                                </div>
-                                <div class="p-2 rounded-xl border-l-4 border-brand-green bg-brand-green/5 text-[9px] leading-snug text-slate-700 dark:text-slate-300">
-                                    <strong class="text-brand-green font-bold block">Оптимистичный (1.5 - 2.5%)</strong>
-                                    Автоматизация заводов компенсирует дефицит рабочих рук.
-                                </div>
-                            </div>
+                    <div class="grid grid-cols-1 gap-2.5 items-stretch flex-grow text-slate-800 dark:text-slate-200">
+                        <!-- Top full-width text glass block -->
+                        <div class="p-2.5 rounded-2xl border border-white/[0.08] dark:border-white/[0.04] bg-slate-900/10 dark:bg-black/10">
+                            <ul class="list-disc pl-5 text-[10px] sm:text-xs text-slate-700 dark:text-slate-300 space-y-0.5 leading-normal">
+                                <li>Масштабные фискальные стимулы на фоне санкций обеспечили рост ВВП, но перегрели экономику, спровоцировав новый виток инфляции.</li>
+                                <li>Дальнейшая динамика зависит от успешности охлаждения спроса с помощью сверхвысоких ставок.</li>
+                            </ul>
                         </div>
 
-                        <div class="md:col-span-7 p-3 rounded-2xl bg-slate-900/10 dark:bg-black/10 border border-white/[0.08] dark:border-white/[0.04] cursor-pointer" onclick="openDetailsModal('ch_forecast')">
-                            <div class="h-full min-h-[220px]">
-                                <canvas id="ch_forecast"></canvas>
+                        <!-- Two-column content layout -->
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-2.5">
+                            <!-- Left panel (2020-2025: Actual data in a beautiful table) -->
+                            <div class="lg:col-span-5 p-2.5 sm:p-3 rounded-2xl border border-white/[0.08] dark:border-white/[0.04] bg-slate-900/10 dark:bg-black/10 flex flex-col justify-between">
+                                <span class="text-[9px] font-black text-slate-500 uppercase tracking-widest block mb-1">2020–2025: Фактические данные</span>
+                                
+                                <div class="overflow-x-auto rounded-xl border border-white/[0.08] dark:border-white/[0.04] my-auto">
+                                    <table class="w-full text-left border-collapse text-[9px] sm:text-[10px] text-slate-800 dark:text-slate-300 font-sans">
+                                        <thead>
+                                            <tr class="bg-slate-500/5 text-slate-500 font-bold border-b border-white/[0.08] dark:border-white/[0.04]">
+                                                <th class="py-1 px-2">Показатель</th>
+                                                <th class="py-1 px-2">Фактическое значение</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-white/[0.08] dark:divide-white/[0.04] font-semibold">
+                                            <tr class="hover:bg-slate-500/5">
+                                                <td class="py-1.5 px-2 font-bold text-slate-700 dark:text-slate-200 font-sans">Рост ВВП</td>
+                                                <td class="py-1.5 px-2 text-brand-blue">от -2.1% до +5.6%</td>
+                                            </tr>
+                                            <tr class="hover:bg-slate-500/5">
+                                                <td class="py-1.5 px-2 font-bold text-slate-700 dark:text-slate-200 font-sans">Ставка ЦБ</td>
+                                                <td class="py-1.5 px-2 text-brand-blue">от 4.25% до 21.0%</td>
+                                            </tr>
+                                            <tr class="hover:bg-slate-500/5">
+                                                <td class="py-1.5 px-2 font-bold text-slate-700 dark:text-slate-200 font-sans">Безработица</td>
+                                                <td class="py-1.5 px-2 text-brand-blue">падение до 2.1%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <span class="text-[7.5px] text-slate-500 block mt-1">Источник: Росстат, Банк России.</span>
+                            </div>
+
+                            <!-- Right panel (2026-2030: Scenarios developing in a premium table) -->
+                            <div class="lg:col-span-7 p-2.5 sm:p-3 rounded-2xl border border-white/[0.08] dark:border-white/[0.04] bg-slate-900/10 dark:bg-black/10 flex flex-col justify-between">
+                                <span class="text-[9px] font-black text-slate-500 uppercase tracking-widest block mb-1">2026–2030: Сценарии развития</span>
+                                
+                                <div class="overflow-x-auto rounded-xl border border-white/[0.08] dark:border-white/[0.04] my-auto">
+                                    <table class="w-full text-left border-collapse text-[9px] sm:text-[10px] text-slate-800 dark:text-slate-300 font-sans">
+                                        <thead>
+                                            <tr class="bg-slate-500/5 text-slate-500 font-bold border-b border-white/[0.08] dark:border-white/[0.04]">
+                                                <th class="py-1 px-2">Показатель</th>
+                                                <th class="py-1 px-2">Базовый</th>
+                                                <th class="py-1 px-2 text-brand-red">Негативный</th>
+                                                <th class="py-1 px-2 text-brand-green">Позитивный</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-white/[0.08] dark:divide-white/[0.04] font-semibold">
+                                            <tr class="hover:bg-slate-500/5">
+                                                <td class="py-1.5 px-2 font-bold text-slate-700 dark:text-slate-200 font-sans">Рост ВВП</td>
+                                                <td class="py-1.5 px-2">1.0–1.5%</td>
+                                                <td class="py-1.5 px-2 text-brand-red font-medium">0–0.5%</td>
+                                                <td class="py-1.5 px-2 text-brand-green font-medium">2.0–2.5%</td>
+                                            </tr>
+                                            <tr class="hover:bg-slate-500/5">
+                                                <td class="py-1.5 px-2 font-bold text-slate-700 dark:text-slate-200 font-sans">Инфляция</td>
+                                                <td class="py-1.5 px-2">4.5–5.5%</td>
+                                                <td class="py-1.5 px-2 text-brand-red font-medium">7–9%</td>
+                                                <td class="py-1.5 px-2 text-brand-green font-medium">3.5–4.5%</td>
+                                            </tr>
+                                            <tr class="hover:bg-slate-500/5">
+                                                <td class="py-1.5 px-2 font-bold text-slate-700 dark:text-slate-200 font-sans">Ставка</td>
+                                                <td class="py-1.5 px-2">12–15%</td>
+                                                <td class="py-1.5 px-2 text-brand-red font-medium">18–22%</td>
+                                                <td class="py-1.5 px-2 text-brand-green font-medium">9–11%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <span class="text-[7.5px] text-slate-500 block mt-1">Источник: IMF MEO, прогнозы Минэкономразвития.</span>
                             </div>
                         </div>
                     </div>
                 `,
-                initChart: () => {
-                    initChartInstance('ch_forecast', {
-                        type: 'line',
-                        data: {
-                            labels: labelsYears.slice(30, 41),
-                            datasets: [
-                                { label: 'Базовый сценарий ВВП', data: dataGDP.slice(30, 41), borderColor: '#2997ff', borderWidth: 2, fill: false },
-                                { label: 'Оптимистичный (автоматизация)', data: Array.from({length: 11}, (_, i) => dataGDP[30+i] + (i > 3 ? 1.0 : 0.4)), borderColor: '#30d158', borderWidth: 1.5, borderDash: [2, 2], fill: false },
-                                { label: 'Инфляция (сценарий)', data: dataCPI.slice(30, 41), borderColor: '#ff453a', borderWidth: 1.5, borderDash: [4, 4], fill: false }
-                            ]
-                        },
-                        options: getChartOptions('Сценарные траектории ВВП и Инфляции до 2030 г.')
-                    });
-                }
+                initChart: () => { }
+            },
+            {
+                id: 11,
+                topic: "Сравнение четырех периодов",
+                title: "Сравнение четырех периодов: эволюция экономики и механизмы адаптации",
+                subtitle: "Анализ показывает, как менялись источники кризисов и способы реагирования регуляторов",
+                render: () => `
+                    <div class="grid grid-cols-1 gap-2.5 items-stretch flex-grow text-slate-800 dark:text-slate-200">
+                        <!-- Top full-width text glass block -->
+                        <div class="p-2 sm:p-2.5 rounded-2xl border border-white/[0.08] dark:border-white/[0.04] bg-slate-900/10 dark:bg-black/10">
+                            <ul class="list-disc pl-5 text-[9.5px] sm:text-xs text-slate-700 dark:text-slate-300 space-y-0.5 leading-normal">
+                                <li>Шоки эволюционировали от внутренних системных сбоев к мощным внешним ограничениям.</li>
+                                <li>Инструментарий монетарной политики стал значительно более сложным и независимым.</li>
+                                <li>Экономика выработала гибкость через плавающий курс и накопление резервных буферов.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Comparative Matrix Table based on third mockup -->
+                        <div class="overflow-x-auto rounded-2xl border border-white/[0.08] dark:border-white/[0.04]">
+                            <table class="w-full text-left border-collapse text-[8.5px] sm:text-[9.5px] text-slate-800 dark:text-slate-300 font-sans">
+                                <thead>
+                                    <tr class="bg-slate-900/20 dark:bg-black/40 text-slate-600 dark:text-slate-400 font-extrabold border-b border-white/[0.08] dark:border-white/[0.04]">
+                                        <th class="py-1 px-1.5 sm:py-1.5 sm:px-2">Период</th>
+                                        <th class="py-1 px-1.5 sm:py-1.5 sm:px-2">Основной шок</th>
+                                        <th class="py-1 px-1.5 sm:py-1.5 sm:px-2">ВВП / Инфляция</th>
+                                        <th class="py-1 px-1.5 sm:py-1.5 sm:px-2">Инструментарий</th>
+                                        <th class="py-1 px-1.5 sm:py-1.5 sm:px-2">Главный вывод</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-white/[0.08] dark:divide-white/[0.04] font-medium">
+                                    <tr class="hover:bg-slate-500/5">
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-bold text-slate-800 dark:text-slate-200 font-display">1990–1999</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 text-slate-500 dark:text-slate-400 font-sans">Распад плановой системы</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-sans">Трансформационный спад, гиперинфляция</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-sans">Либерализация цен и дефицит</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-sans">Необходимость независимости ЦБ и дисциплины</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-500/5">
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-bold text-slate-800 dark:text-slate-200 font-display">2000–2009</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 text-slate-500 dark:text-slate-400 font-sans">Сырьевой цикл и кризис 2008</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-sans">Восстановительный рост, умеренное снижение</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-sans">Резкий спад при умеренной инфляции</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-sans">Важность суверенных фондов и резервов</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-500/5">
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-bold text-slate-800 dark:text-slate-200 font-display">2010–2019</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 text-slate-500 dark:text-slate-400 font-sans">Санкции 2014 и падение нефти</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-sans">Стагнация и замедление, таргет 4%</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-sans">Стагнация, разовый всплеск цен</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-sans">Плавающий курс как буфер эффективности</td>
+                                    </tr>
+                                    <!-- Current 2020-2030 highlighted in blue glassmorphism -->
+                                    <tr class="bg-blue-600/[0.08] dark:bg-blue-500/10 hover:bg-blue-600/[0.12] border-t border-b border-brand-blue/20">
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-black text-brand-blue font-display">2020–2030</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 text-slate-700 dark:text-slate-300 font-semibold font-sans">COVID, санкции 2022 и ограничения предложения</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 text-slate-700 dark:text-slate-300 font-semibold font-sans">Волатильность и структурная перестройка</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 text-slate-700 dark:text-slate-300 font-semibold font-sans">Перегрев, дефицит кадров</td>
+                                        <td class="py-1 px-1.5 sm:py-1.5 sm:px-2 font-bold text-brand-blue font-sans">Жесткая ДКП при физических пределах роста</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `,
+                initChart: () => { }
             }
         ];
 
-        // REPORT TEXT DATA (Right Content Panel - Written in simplified language, with SVO blocks and Unemployment)
         const reportData = [
             {
                 id: 0,
@@ -1064,33 +1274,14 @@
                 title: "1. Введение. Эволюция макроэкономики России",
                 html: `
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                        Приветствую всех коллег и слушателей! Сегодня мы разберем экономическую историю России за последние сорок лет — с 1990 по 2030 годы. Это период невероятных реформ, глубоких кризисов, взрывного сырьевого роста и беспрецедентного санкционного давления.
+                        Коллеги, добрый день! Сегодня я хочу рассказать макроэкономическую историю России с 1990 по 2030 год через пять ключевых показателей: ВВП, инфляцию, ставку Центрального банка, курс рубля и уровень безработицы.
                     </p>
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-3">
-                        Чтобы сложная экономика стала простой и понятной любому человеку, давайте представим её как <strong>автомобиль</strong>, который едет по очень неровной дороге. У нашего автомобиля есть приборная панель с пятью критически важными датчиками, за которыми мы будем следить на протяжении всего пути.
+                        Чтобы сложная экономика стала простой и понятной любому слушателю, представим экономику как <strong>автомобиль</strong>, который едет по очень неровной дороге. У этого автомобиля есть приборная панель с пятью критически важными датчиками, за поведением которых мы будем следить.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-                        <div class="p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
-                            <strong class="text-brand-blue block text-xs uppercase font-display"><i class="fa-solid fa-gauge-high"></i> 1. ВВП (Скорость)</strong>
-                            <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Показывает, едет ли машина вперед, разгоняется или буксует на месте.</span>
-                        </div>
-                        <div class="p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
-                            <strong class="text-brand-red block text-xs uppercase font-display"><i class="fa-solid fa-temperature-high"></i> 2. Инфляция (Температура)</strong>
-                            <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Температура двигателя. Если она в норме — машина едет хорошо, если слишком высокая — мотор закипает и сгорает.</span>
-                        </div>
-                        <div class="p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
-                            <strong class="text-brand-orange block text-xs uppercase font-display"><i class="fa-solid fa-circle-dot"></i> 3. Ставка ЦБ (Тормоз)</strong>
-                            <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Педаль тормоза. Если машина летит слишком быстро, а двигатель перегрелся, ЦБ давит на тормоз, остужая спрос.</span>
-                        </div>
-                        <div class="p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
-                            <strong class="text-brand-green block text-xs uppercase font-display"><i class="fa-solid fa-arrows-left-right"></i> 4. Курс рубля (Амортизатор)</strong>
-                            <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Мягкая подвеска шасси. Она гасит внешние ямы от санкций и нефтяных падений, чтобы пассажиры не разбились.</span>
-                        </div>
-                    </div>
-                    <div class="p-3 rounded-xl bg-brand-purple/5 border border-brand-purple/10 mt-3">
-                        <strong class="text-brand-purple block text-xs uppercase font-display"><i class="fa-solid fa-circle-notch"></i> 5. Безработица (Обороты / Тахометр)</strong>
-                        <span class="text-[11px] text-slate-600 dark:text-slate-300 mt-1 block font-medium">Новый датчик на нашей панели! Показывает обороты двигателя. Если свободных людей в стране не осталось, мотор уходит в красную зону тахометра — разогнаться сильнее физически невозможно.</span>
-                    </div>
+                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-3">
+                        В этой логике мы посмотрим на четыре важнейших исторических периода: 1990-е, 2000-е, 2010-е и 2020-е годы. Главный вопрос нашего исследования: как менялись эти пять индикаторов и что именно они говорят о прочности и адаптации экономики России.
+                    </p>
                 `
             },
             {
@@ -1099,17 +1290,32 @@
                 title: "2. Экономика под капотом: Наша модель",
                 html: `
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                        Давайте заглянем под капот нашей экономической машины и подробнее разберем взаимосвязь всех пяти датчиков. В обычной жизни экономисты сыплют сложными терминами вроде <em>«монетарная трансмиссия»</em>, <em>«инфляционные ожидания»</em> или <em>«ликвидность»</em>. Мы обойдемся без этой заумности.
+                        Давайте подробнее расшифруем показания приборов на панели нашего экономического автомобиля:
                     </p>
-                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
-                        Представьте простую цепочку событий. Водитель жмет на газ — государство вливает бюджетные деньги, а банки выдают дешевые кредиты. **ВВП (Скорость)** начинает расти. Однако, если скорость становится слишком высокой, а заводы не успевают производить достаточное количество товаров, **двигатель начинает перегреваться — растет Инфляция (Температура)**.
-                    </p>
-                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
-                        Чтобы мотор не взорвался от перегрева, Центральный Банк резко **нажимает на педаль Ставки (Тормоз)**. Кредиты дорожают, люди начинают меньше тратить и больше копить, спрос охлаждается, и температура двигателя приходит в норму. 
-                    </p>
-                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
-                        А что же делает **Курс рубля (Амортизатор)**? До 2014 года государство пыталось жестко зафиксировать курс. Это приводило к тому, что при любой сырьевой яме машина испытывала сокрушительные удары, сжигая резервы. Переход к плавающему курсу превратил рубль в отличный амортизатор: при падении цен на нефть рубль сжимается (девальвируется), спасая бюджет, а при дорогой нефти — разжимается, укрепляя доходы граждан.
-                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+                        <div class="p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+                            <strong class="text-brand-blue block text-xs uppercase font-display"><i class="fa-solid fa-gauge-high"></i> ВВП (Скорость)</strong>
+                            <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Показывает скорость движения системы: едет ли машина вперед, набирает ход или тормозит.</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+                            <strong class="text-brand-red block text-xs uppercase font-display"><i class="fa-solid fa-temperature-high"></i> Инфляция (Температура)</strong>
+                            <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Температура двигателя: при чрезмерном перегреве система закипает, а деньги обесцениваются.</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+                            <strong class="text-brand-orange block text-xs uppercase font-display"><i class="fa-solid fa-circle-dot"></i> Ставка ЦБ (Тормоз)</strong>
+                            <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Педаль тормоза: когда скорость слишком высока и двигатель перегревается, регулятор делает деньги дороже, охлаждая спрос.</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+                            <strong class="text-brand-green block text-xs uppercase font-display"><i class="fa-solid fa-arrows-left-right"></i> Курс рубля (Амортизатор)</strong>
+                            <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Подвеска подвеса: гасит удары внешних сырьевых и санкционных шоков, предохраняя всю раму от перелома.</span>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-brand-purple/5 border border-brand-purple/10 mt-3">
+                        <strong class="text-brand-purple block text-xs uppercase font-display"><i class="fa-solid fa-circle-notch"></i> Безработица (Тахометр)</strong>
+                        <span class="text-[11px] text-slate-600 dark:text-slate-300 mt-1 block font-medium">
+                            Тахометр, показывающий обороты двигателя: когда свободных рук в стране не остается, мотор уходит в красную зону оборотов, и разгоняться дальше физически невозможно, так как поршни плавятся от перегрева.
+                        </span>
+                    </div>
                 `
             },
             {
@@ -1118,20 +1324,18 @@
                 title: "3. ВВП: Скорость движения российской экономики",
                 html: `
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                        ВВП — это скорость движения нашего экономического автомобиля. Когда ВВП растет, страна производит больше кирпичей, молока, танков, компьютерных программ и услуг. Когда падает — машина теряет ход или катится назад.
+                        ВВП — это скорость движения нашего экономического автомобиля. На графике четко видно, что 1990-е годы были не просто обычной рецессией, а аварийным системным спадом (рекордные -14.5% в 1992 году) из-за краха плановых поставок и перехода к рыночной структуре.
                     </p>
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
-                        Если мы взглянем на сорокалетний график скорости, мы увидим четыре совершенно разных периода:
+                        В 2000-е годы экономика набрала огромную скорость, разгоняясь до +10% в год. Сработал мощный сырьевой ветер: котировки Brent взлетели с $12 до $98 за баррель, а также эффект низкой базы после кризиса 1998 года.
                     </p>
-                    <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-2 mt-2 leading-relaxed">
-                        <li><strong>1990-е</strong>: Глубочайшая авария. Машина буквально летела в кювет, потеряв 14.5% скорости в 1992 году. Это была не обычная рецессия, а полная переборка двигателя с планового на рыночный.</li>
-                        <li><strong>2000-е</strong>: Невероятный форсаж. Скорость взлетала до +10% г/г. Но помогал сильнейший попутный ветер — дорожающая нефть.</li>
-                        <li><strong>2010-е</strong>: Замедление. Санкции 2014 года и падение нефти опустили темпы роста ВВП до умеренных 1-2%.</li>
-                    </ul>
-                    <div class="p-3 rounded-xl bg-brand-blue/5 border border-brand-blue/20 mt-4">
-                        <strong class="text-brand-blue block text-xs uppercase font-display"><i class="fa-solid fa-circle-exclamation"></i> Влияние СВО на ВВП:</strong>
+                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
+                        После 2014 года динамика стала слабее. Внешние ограничения и падение цен на нефть снизили темпы роста до умеренных 1.5-2% в год.
+                    </p>
+                    <div class="p-3 rounded-xl bg-brand-blue/5 border border-brand-blue/20 mt-3">
+                        <strong class="text-brand-blue block text-xs uppercase font-display"><i class="fa-solid fa-circle-exclamation"></i> Искусственный ОПК-импульс:</strong>
                         <span class="text-[11px] text-slate-600 dark:text-slate-300 mt-1 block font-medium">
-                            В 2023–2024 годах скорость машины неожиданно выросла до +4.92%. Почему? Это результат огромных расходов государства на СВО (военную операцию) и оборонные заводы. Государство покупает технику, платит огромные зарплаты рабочим ОПК и контрактникам. Деньги хлынули в экономику, разогнав скорость. Однако этот рост носит искусственный, бюджетный характер: военный сектор растет лавинообразно, а гражданские отрасли (строительство, услуги, ритейл) не могут развиваться такими же темпами из-за нехватки кадров.
+                            В 2023–2024 годах последовало оборонно-промышленное ускорение ВВП до +4.92%. Но этот рост вызван колоссальными государственными вливаниями в оборонно-промышленный комплекс и носит искусственный характер, тогда как потенциал долгосрочного рыночного роста остается ограниченным.
                         </span>
                     </div>
                 `
@@ -1142,15 +1346,18 @@
                 title: "4. Инфляция: Почему закипает двигатель?",
                 html: `
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                        Инфляция — это ценовая температура мотора. Небольшой нагрев (около 4%) абсолютно нормален и даже полезен для движения. Но если температура взлетает слишком высоко — деньги обесцениваются, сбережения сгорают, а планировать будущее становится невозможно.
+                        Инфляция — это ценовая температура мотора. В 1992 году отмена фиксированных советских цен привела к гиперинфляции в 2500%. Деньги мгновенно обесценились, бизнесу стало невозможно заключать долгосрочные контракты.
                     </p>
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
-                        В 1992 году ценовой мотор раскалился до сумасшедших 2500%. Рубль превратился в простую бумагу. В 2010-х годах Центробанк научился эффективно охлаждать цены с помощью «таргетирования» (удержания инфляции у отметки 4%). В 2017 году температура действительно опустилась до исторического минимума.
+                        В 2000-е годы ценовая температура постепенно снизилась до двузначных, а затем и однозначных величин, хотя оставалась чувствительной к притоку нефтедолларов.
+                    </p>
+                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
+                        В 2010-е годы Банк России внедрил новый подход — **инфляционное таргетирование** с постоянной целью в 4%. Это позволило сбить температуру до исторического минимума в 2.9% к 2017 году.
                     </p>
                     <div class="p-3 rounded-xl bg-brand-red/5 border border-brand-red/10 mt-3">
-                        <strong class="text-brand-red block text-xs uppercase font-display"><i class="fa-solid fa-fire text-brand-red"></i> Влияние СВО на инфляцию:</strong>
+                        <strong class="text-brand-red block text-xs uppercase font-display"><i class="fa-solid fa-fire text-brand-red"></i> Перегрев спроса после 2022 года:</strong>
                         <span class="text-[11px] text-slate-600 dark:text-slate-300 mt-1 block font-medium">
-                            После 2022 года инфляция снова поползла вверх, достигнув 8.4% в 2024 году. Причина проста: оборонные расходы государства и выплаты участникам СВО влили в карманы граждан триллионы рублей. Спрос на товары резко вырос (люди хотят покупать машины, технику, квартиры). Но заводы не могут производить больше гражданских товаров — они заняты оборонными заказами, а импорт зажат санкциями. В итоге слишком много рублей гоняется за слишком малым количеством товаров, заставляя цены лететь вверх.
+                            После 2022 года инфляция снова поползла вверх, составив 8.4% в 2024 году. Триллионы рублей, направленные на гособоронзаказ, резко разогрели спрос граждан, который натолкнулся на дефицит кадров и санкционные ограничения импорта.
                         </span>
                     </div>
                 `
@@ -1161,18 +1368,18 @@
                 title: "5. Ключевая ставка: Как работает тормоз Центробанка?",
                 html: `
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                        Когда двигатель экономики перегревается и инфляция растет, регулятор (Центробанк) нажимает на педаль тормоза — повышает ключевую ставку. 
+                        Ставка — это педаль тормоза. Когда цены растут слишком быстро, Центральный банк зажимает дисковые тормоза, делая кредиты дорогими, а вклады — выгодными. Спрос остывает, граждане копят деньги, и инфляция замедляется. Этот тормоз работает с лагом в 3-6 месяцев.
                     </p>
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
-                        Как это работает? Деньги становятся дорогими. Кредиты под 25% годовых брать никто не хочет — ни обычные люди на покупку стиральных машин, ни бизнесмены на открытие новых цехов. Зато банки предлагают огромные проценты по вкладам (например, 20%). Людям становится выгоднее не тратить деньги прямо сейчас, а положить их в банк под хороший процент. Потребление падает, спрос охлаждается, и цены перестают расти.
+                        В 1990-е годы ставка взлетала до 210%, но работала плохо из-за слабых институтов и дефицитного бюджета.
                     </p>
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
-                        Но помните: тормоз экономики срабатывает не мгновенно. Эффект от нажатия на педаль ставки доходит до цен только через 3–6 месяцев.
+                        В 2010-х и 2020-х годах ставка стала ключевым рабочим инструментом. В моменты кризисов ЦБ резко жал на педаль тормоза: до 17% в 2014 году, до 20% в 2022 году и до рекордных 21% в конце 2024 года. Это останавливало панику и спасало вклады.
                     </p>
                     <div class="p-3 rounded-xl bg-brand-orange/5 border border-brand-orange/10 mt-3">
-                        <strong class="text-brand-orange block text-xs uppercase font-display"><i class="fa-solid fa-triangle-exclamation"></i> Влияние СВО на ставку ЦБ:</strong>
+                        <strong class="text-brand-orange block text-xs uppercase font-display"><i class="fa-solid fa-triangle-exclamation"></i> Пределы торможения:</strong>
                         <span class="text-[11px] text-slate-600 dark:text-slate-300 mt-1 block font-medium">
-                            В конце 2024 года ЦБ выжал тормоз практически до упора, подняв ставку до рекордных 21.0%. Почему тормозить приходится так жестко? Потому что государство продолжает активно тратить бюджетные триллионы на ОПК и СВО, совершенно не глядя на уровень ставки. Оборонным заводам выдают льготные субсидии, они всё равно берут кредиты под любые проценты, продолжая разгонять спрос. ЦБ приходится зажимать педаль тормоза до предела, чтобы остановить этот напор.
+                            Рекордные 21% в конце 2024 года сбили панику, но тормоз лишь охлаждает спрос — он физически не может построить новые заводы или нанять новых рабочих при жестких ограничениях предложения.
                         </span>
                     </div>
                 `
@@ -1183,17 +1390,13 @@
                 title: "6. Курс рубля: Эластичный амортизатор шоков",
                 html: `
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                        Курс рубля — это амортизатор нашего финансового шасси. До 2014 года государство пыталось держать курс стабильным, тратя миллиарды нефтедолларов из резервов на защиту конкретной красивой цифры (например, 30 рублей за доллар). Это как ехать на жесткой подвеске без амортизаторов по глубоким ямам — каждая яма бьет по кузову, а потом вся подвеска разлетается в щепки (как это случилось в дефолт 1998 года).
+                        Курс USD/RUB — это подвеска financial системы, сглаживающая внешние ямы. До 2014 года ЦБ пытался удерживать жесткий коридор, сжигая десятки миллиардов долларов резервов при каждом падении цен на нефть. Это было похоже на езду без амортизаторов, приведшую к перелому рамы и дефолту в 1998 году.
                     </p>
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
-                        В 2014 году ЦБ перешел к плавающему курсу. Теперь рубль сам подстраивается под ямы:
+                        В ноябре 2014 года ЦБ принял историческое решение — отпустил рубль в свободное плавание. Курс стал эластичным амортизатором: при падении нефти рубль быстро слабеет (сжимается), спасая доходы бюджета от дефицита, а при дорогой нефти — укрепляется.
                     </p>
-                    <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-1.5 mt-2 leading-relaxed">
-                        <li>Нефть дешевеет или вводят новые санкции? Рубль падает (амортизатор сжимается). Да, импорт дорожает, но зато государству не нужно сжигать резервы, а экспортеры получают больше рублей за продажу сырья, что спасает бюджет от дефицита.</li>
-                        <li>Цены на сырье растут? Рубль укрепляется (амортизатор разжимается).</li>
-                    </ul>
-                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-3">
-                        Плавающий курс рубля стал спасительным щитом, который не позволил разорвать российскую финансовую систему в 2022 году при введении самых жестких в истории мировых санкций.
+                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
+                        Эластичный плавающий курс взял на себя всю тяжесть внешнего давления в 2022 году, защитив резервы и не дав санкциям разорвать финансовую систему страны.
                     </p>
                 `
             },
@@ -1219,7 +1422,7 @@
             {
                 id: 7,
                 icon: "fa-skull-crossbones text-brand-red",
-                title: "8. Шок 1990-х: Езда без правил по бездорожью",
+                title: "8. Шок 1990-х: Аварийный транзит по бездорожью",
                 html: `
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                         1990-е годы были самым тяжелым и опасным участком дороги. Наш автомобиль несся по полному бездорожью, лишившись колес и меняя двигатель на ходу (переход от советской плановой системы к рынку).
@@ -1235,7 +1438,7 @@
             {
                 id: 8,
                 icon: "fa-money-bill-trend-up text-brand-green",
-                title: "9. Золотые 2000-е: Ураганный сырьевой ветер",
+                title: "9. Золотые 2000-е: Сырьевой форсаж системы",
                 html: `
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                         В 2000-е годы экономический автомобиль наконец выбрался на ровный автобан и набрал огромную скорость.
@@ -1254,44 +1457,59 @@
                 title: "10. Кризис 2014 года: Новые правила бронирования",
                 html: `
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                        В 2014 году сытый период закончился. На дорогу выкатились сразу две огромные преграды: нефть рухнула в два раза (со $110 до $50), и против России ввели первые международные санкции.
+                        В 2014 году сытый период попутного ветра закончился. На дорогу выкатились сразу две огромные преграды: нефть рухнула со $110 до $50 за баррель, и против России ввели первые международные санкции.
                     </p>
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
-                        Амортизатор рубля сжался вдвое — доллар взлетел с 32 до 60+ рублей. Инфляция раскалилась до 15.5%.
+                        Амортизатор рубля сжался вдвое — доллар взлетел с 32 до 60+ рублей. Инфляция раскалилась до 15.5%. В ответ Центробанк резко нажал на педаль тормоза, подняв ставку до 17% в конце 2014 года.
                     </p>
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
-                        Однако именно эта авария заставила пересобрать подвеску машины, сделав её бронированной. Во-первых, рубль окончательно отпустили в свободное плавание. Во-вторых, внедрили обновленное **Бюджетное правило**: все нефтяные доходы свыше $40 за баррель уходили в ФНБ, полностью отвязав расходы бюджета от стоимости сырья на мировом рынке. В-третьих, запущенное импортозамещение в сельском хозяйстве спасло продовольственный сектор.
+                        Однако именно этот двойной удар заставил полностью пересобрать макроэкономическую конструкцию, сделав её бронированной. Во-первых, рубль окончательно отпустили в свободное плавание. Во-вторых, внедрили обновленное **Бюджетное правило**, сберегающее излишки в ФНБ. В-третьих, в 2015 году официально перешли к **инфляционному таргетированию** с постоянной целью в 4%.
                     </p>
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
-                        Благодаря этим жестким мерам, уже к 2017 году инфляция снизилась до рекордно низких 2.9%, а экономика доказала свою адаптивность к любым санкциям.
+                        Благодаря новой броне, уже к 2017 году инфляция снизилась до рекордного исторического минимума в 2.9%, а учетная ставка плавно опустилась вслед за ценами до 6.25% к концу 2019 года.
                     </p>
                 `
             },
             {
                 id: 10,
                 icon: "fa-compass text-brand-blue",
-                title: "11. 2020-е годы и сценарный взгляд до 2030 года",
+                title: "11. 2020-е годы: Физический предел и структурный лимит",
                 html: `
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                        2020-е годы начались с пандемийного торможения, а продолжились в 2022 году невиданными санкциями, блокировкой половины золотовалютных резервов и началом СВО. Экономика проявила чудеса живучести: за пару лет были выстроены новые логистические пути в Азию, запущены новые системы платежей и развернуты внутренние конвейеры.
+                        2020-е годы начались с пандемийного заноса, а продолжились в 2022 году беспрецедентными санкциями, блокировкой резервов и началом СВО. Экономика проявила невероятную живучесть, перестроив логистические пути в Азию за пару лет.
                     </p>
                     <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
-                        Но ехать дальше становится сложнее. Кадровый голод из-за СВО и технологический лимит из-за санкций мешают разгонять ВВП. Нам придется жить в условиях кардинальной структурной перестройки.
+                        Но к 2024-2025 годам машина уперлась в жесткий **физический лимит**. Огромные государственные расходы на ОПК и СВО разогнали скорость ВВП до +4.92%, но перегрели мотор. Инфляция ускорилась до 8.4%, заставив ЦБ зажать тормоз ставки до рекордных 21%. Главный ограничитель — предельный кадровый голод при безработице в 2.1-2.2%. Стрелка тахометра ушла глубоко в «красную зону».
                     </p>
-                    <div class="p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 mt-3">
-                        <strong class="text-brand-blue block text-xs uppercase font-display"><i class="fa-solid fa-road"></i> Три сценария развития до 2030 года:</strong>
-                        <ul class="list-decimal pl-5 text-xs text-slate-600 dark:text-slate-400 space-y-1 mt-2">
-                            <li><strong>Базовый (Осторожный)</strong>: Рост ВВП на 1.0-1.5% в год. Кадров не хватает, ставка остается высокой, остужая спрос, но сдерживая инфляцию. Ресурсы ОПК продолжают давить на гражданский сектор.</li>
-                            <li><strong>Оптимистичный (Технологический)</strong>: Рост на 2.0-2.5%. Острый дефицит рабочих рук компенсируется автоматизацией, роботами и резким ростом производительности труда.</li>
-                            <li><strong>Пессимистичный (Стагнационный)</strong>: Темпы роста ВВП падают ниже 0.5% из-за падения сырьевого экспорта и разгона инфляционной спирали.</li>
-                        </ul>
-                    </div>
-                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-3">
-                        <strong>Главный вывод доклада:</strong> Макроэкономическая стабильность — это не просто один красивый показатель. Это сложная работа всех систем: бюджета, плавающего курса, резервов и монетарного контроля ЦБ. Только бережное отношение к кадровым ресурсам и инвестиции в новые технологии позволят нашему автомобилю уверенно ехать вперед по любой ухабистой дороге истории. Спасибо за внимание!
+                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
+                        <strong>Три сценария развития до 2030 года:</strong>
+                    </p>
+                    <ul class="list-decimal pl-5 text-xs text-slate-600 dark:text-slate-400 space-y-1 mt-1 leading-relaxed">
+                        <li><strong>Базовый</strong>: Медленная адаптация, рост ВВП на 1.0-1.5% при высокой ставке и сдерживании инфляции.</li>
+                        <li><strong>Оптимистичный</strong>: Ускоренный рост до 2.0-2.5% за счет роботизации и автоматизации дефицитных рабочих мест.</li>
+                        <li><strong>Негативный</strong>: Стагнация ниже 0.5% из-за падения сырьевого экспорта и разгона инфляционной спирали.</li>
+                    </ul>
+                `
+            },
+            {
+                id: 11,
+                icon: "fa-table text-brand-purple",
+                title: "12. Сравнение четырех периодов: эволюция и адаптация",
+                html: `
+                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                        Если собрать всю сорокалетнюю историю макроэкономики России в единую матрицу, мы увидим четкую эволюцию шоков и способов адаптации финансовой системы.
+                    </p>
+                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
+                        Шоки развивались от внутренних трансформационных сбоев 1990-х к сырьевым циклам 2000-х, а затем — к жестким геополитическим ограничениям 2010-х и 2020-х годов. Каждый кризис заставлял регуляторов собирать все более сложный и эластичный инструментарий: от простого отпуска цен к суверенным фондам, плавающему курсу и жесткой ДКП при физических пределах роста.
+                    </p>
+                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">
+                        <strong>Макроэкономическая стабильность</strong> — это не волшебная кнопка, а слаженная работа всех систем: бюджета, курса, резервов и независимой политики Центрального банка. Только бережное отношение к кадровым ресурсам и инвестиции в новые технологии позволят нашему автомобилю уверенно ехать вперед по любой ухабистой дороге истории. Спасибо за внимание!
                     </p>
                 `
             }
         ];
+
+        // Redundant block removed
 
         let currentSlideIndex = 0;
         const chartInstances = {};
